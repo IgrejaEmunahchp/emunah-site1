@@ -3,12 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>EMUNAH</title>
+<title>IGREJA EMUNAH</title>
 
 <style>
 body {
   margin: 0;
-  font-family: Arial;
+  font-family: Arial, sans-serif;
   background: url('IMG-20260321-WA0007.jpg') no-repeat center center fixed;
   background-size: cover;
   color: white;
@@ -22,13 +22,14 @@ body {
 }
 
 h1 {
+  font-size: 42px;
   color: gold;
-  font-size: 40px;
-  margin-top: 10px;
+  text-shadow: 0 0 15px gold;
+  margin-bottom: 10px;
 }
 
 .card {
-  background: rgba(255,255,255,0.1);
+  background: rgba(255,255,255,0.12);
   margin: 10px auto;
   padding: 15px;
   border-radius: 15px;
@@ -36,33 +37,29 @@ h1 {
   backdrop-filter: blur(10px);
 }
 
-/* FOTO */
-.img-box {
-  margin-top: 20px;
-}
-
-.img-box img {
+img {
   width: 90%;
   max-width: 500px;
+  margin-top: 20px;
   border-radius: 15px;
   box-shadow: 0 0 20px black;
 }
 
-/* BOTÃO */
 .btn {
   margin-top: 20px;
   padding: 15px 25px;
   background: #25D366;
-  border-radius: 10px;
   color: white;
+  border-radius: 10px;
   text-decoration: none;
   display: inline-block;
+  font-weight: bold;
+  transition: 0.3s;
 }
 
-/* PLAYER */
-#player {
-  margin-top: 20px;
-  display: none;
+.btn:hover {
+  transform: scale(1.05);
+  background: #1ebe5d;
 }
 </style>
 </head>
@@ -73,46 +70,35 @@ h1 {
 
 <h1>IGREJA EMUNAH</h1>
 
+<!-- CULTOS -->
 <div class="card">Terça - Minha família no altar (20:00 BR)</div>
 <div class="card">Quarta - Oração e ensaio (20:00 BR)</div>
 <div class="card">Quinta - Culto de libertação (20:00 BR)</div>
 <div class="card">Sábado - Culto (15 em 15 dias às 16:00 BR)</div>
 <div class="card">Domingo - Culto (19:00 BR)</div>
 
-<!-- FOTO EMBUTIDA -->
-<div class="img-box">
-  <img src="IMG-20260321-WA0007.jpg">
-</div>
+<!-- IMAGEM -->
+<img src="IMG-20260321-WA0007.jpg" alt="EMUNAH">
 
-<!-- BOTÃO LOUVOR -->
+<!-- BOTÃO WHATSAPP -->
 <br>
-<button class="btn" onclick="playMusic()">
-🎵 Iniciar Louvor
-</button>
-
-<!-- WHATSAPP -->
-<br>
-<a class="btn" 
-href="https://wa.me/556496078723?text=Irei%20comparecer%20ao%20culto!" 
-target="_blank">
+<a class="btn" href="https://wa.me/556496078723?text=Irei%20comparecer%20ao%20culto!" target="_blank">
 Confirmar Presença
 </a>
 
-<!-- MÚSICA LOCAL (AAC) -->
+<!-- 🎵 MÚSICA LOCAL -->
 <audio id="audio" autoplay loop>
-  <source src="AUD-20260321-WA0009.aac" type="audio/aac">
+  <source src="louvor.m4a" type="audio/mp4">
 </audio>
 
 <script>
 window.addEventListener("load", () => {
   const audio = document.getElementById("audio");
 
-  // tenta tocar automaticamente
   const playPromise = audio.play();
 
   if (playPromise !== undefined) {
     playPromise.catch(() => {
-      // se bloquear, tenta no primeiro toque
       document.addEventListener("touchstart", () => {
         audio.play();
       }, { once: true });
@@ -120,6 +106,8 @@ window.addEventListener("load", () => {
   }
 });
 </script>
-  
+
+</div>
+
 </body>
 </html>
