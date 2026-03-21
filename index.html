@@ -98,31 +98,28 @@ target="_blank">
 Confirmar Presença
 </a>
 
-<!-- MÚSICA AUTOMÁTICA GOD MODE -->
-<iframe
-  id="music"
-  width="0"
-  height="0"
-  src="https://www.youtube.com/embed/cWA81k-7kp0?autoplay=1&loop=1&playlist=cWA81k-7kp0&mute=0"
-  allow="autoplay">
-</iframe>
+<!-- MÚSICA LOCAL (AAC) -->
+<audio id="audio" autoplay loop>
+  <source src="AUD-20260321-WA0009.aac" type="audio/aac">
+</audio>
 
 <script>
-function tryPlayMusic() {
-  const iframe = document.getElementById("music");
-  iframe.src = iframe.src; // força tentativa de reprodução
-}
-
-// tenta ao abrir
 window.addEventListener("load", () => {
-  tryPlayMusic();
+  const audio = document.getElementById("audio");
+
+  // tenta tocar automaticamente
+  const playPromise = audio.play();
+
+  if (playPromise !== undefined) {
+    playPromise.catch(() => {
+      // se bloquear, tenta no primeiro toque
+      document.addEventListener("touchstart", () => {
+        audio.play();
+      }, { once: true });
+    });
+  }
 });
-
-// garante que toca no primeiro toque da tela (sem botão)
-document.addEventListener("touchstart", () => {
-  tryPlayMusic();
-}, { once: true });
 </script>
-
+  
 </body>
 </html>
