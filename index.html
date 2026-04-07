@@ -6,75 +6,120 @@
 <title>EMUNAH - Igreja</title>
 
 <style>
-body {
-  margin: 0;
+
+/* RESET */
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
   font-family: Arial, sans-serif;
   background: #111;
-  color: white;
+  color:white;
+  text-align:center;
 }
-  <style>
-/* INTRO SIMPLES */
-#intro {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    background-color: #000;
-    display: flex;
-    align-items: center;      /* centraliza vertical */
-    justify-content: center;  /* centraliza horizontal */
-    z-index: 9999;
-  }
 
-  #intro img {
-    max-width: 80%;           /* responsivo */
-    width: 200px;             /* tamanho base */
-    height: auto;             /* mantém proporção */
-    border-radius: 15px;
-  }
+/* INTRO */
+#intro{
+  position:fixed;
+  width:100%;
+  height:100vh;
+  background:#000;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  z-index:9999;
+}
+
+#intro img{
+  width:200px;
+  max-width:80%;
+  border-radius:15px;
+}
 
 /* CONTEÚDO */
-#site {
-  display: none;
-  text-align: center;
-  padding: 20px;
+#site{
+  display:none;
+  padding:30px 15px;
+  animation: fadeIn 1s ease-in-out;
 }
 
-h1 {
-  color: gold;
+@keyframes fadeIn{
+  from{opacity:0}
+  to{opacity:1}
 }
 
-.card {
-  background: #222;
-  margin: 10px auto;
-  padding: 15px;
-  border-radius: 10px;
-  max-width: 500px;
+h1{
+  color:gold;
+  margin-bottom:25px;
+  font-size:28px;
 }
 
-/* IMAGEM */
-.culto-img {
-  margin-top: 20px;
+/* CARDS */
+.card{
+  background:#1c1c1c;
+  margin:10px auto;
+  padding:15px;
+  border-radius:12px;
+  max-width:500px;
+  font-size:16px;
+  box-shadow:0 5px 15px rgba(0,0,0,0.4);
 }
 
-.culto-img img {
-  width: 100%;
-  max-width: 500px;
-  border-radius: 15px;
+/* BOTÃO VER FOTO */
+.btn-ver{
+  margin-top:10px;
+  padding:8px 15px;
+  background:gold;
+  color:#000;
+  border:none;
+  border-radius:8px;
+  cursor:pointer;
+  font-weight:bold;
 }
 
-/* BOTÃO */
-.btn {
-  display: inline-block;
-  margin-top: 20px;
-  padding: 15px 25px;
-  background: #25D366;
-  color: white;
-  text-decoration: none;
-  border-radius: 10px;
-  font-weight: bold;
+.btn-ver:hover{
+  opacity:0.8;
 }
+
+/* FOTO QUINTA */
+#fotoQuinta{
+  display:none;
+  margin:15px auto;
+  max-width:350px;
+  width:100%;
+  border-radius:12px;
+  box-shadow:0 5px 15px rgba(0,0,0,0.5);
+}
+
+/* FOTO FINAL */
+.culto-img img{
+  width:100%;
+  max-width:500px;
+  margin-top:25px;
+  border-radius:15px;
+}
+
+/* BOTÃO WHATSAPP */
+.btn{
+  display:inline-block;
+  margin-top:30px;
+  padding:15px 25px;
+  background:#25D366;
+  color:white;
+  text-decoration:none;
+  border-radius:10px;
+  font-weight:bold;
+  box-shadow:0 5px 15px rgba(0,0,0,0.4);
+}
+
+.btn:hover{
+  transform:scale(1.05);
+  transition:0.3s;
+}
+
 </style>
 </head>
 
@@ -85,68 +130,67 @@ h1 {
   <source src="louvor.mp3" type="audio/mpeg">
 </audio>
 
-<!-- 🎬 INTRO -->
+<!-- INTRO -->
 <div id="intro">
   <img src="IMG-20260319-WA0002.jpg" alt="EMUNAH">
 </div>
 
-<!-- 🌍 SITE -->
+<!-- SITE -->
 <div id="site">
 
 <h1>IGREJA EMUNAH</h1>
 
 <div class="card">Terça - Minha família no altar (20:00 Horas - BR)</div>
 <div class="card">Quarta - Oração e ensaio (20:00 Horas - BR)</div>
-<div class="card">Quinta - Culto de libertação (20:00 Horas - BR)</div>
-<img src="f05036ad02e941c8ac8a829997e7d606.jpg" class="foto-quinta">
-  <style>
-.foto-quinta {
-    width: 100%;        /* ocupa todo o espaço do card */
-    max-width: 350px;   /* tamanho máximo ideal */
-    height: auto;       /* mantém proporção */
-    display: block;
-    margin: 10px auto 20px auto;
-    border-radius: 12px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-}
-  </style>
-  
+
+<div class="card">
+  Quinta - Culto de libertação (20:00 Horas - BR)
+  <br>
+  <button class="btn-ver" onclick="toggleFoto()">Ver Foto</button>
+</div>
+
+<img src="f05036ad02e941c8ac8a829997e7d606.jpg" id="fotoQuinta">
+
 <div class="card">Sábado - Culto a cada 15 dias (16:00 Horas - BR)</div>
 <div class="card">Domingo - Culto (19:00 Horas - BR)</div>
 
-<!-- 🖼️ FOTO ABAIXO DOS CULTOS -->
-<div class="culto-img">  
-  <img src="a39723b2527e49cda0dc34bed668c7a5.jpg" alt="Igreja EMUNAH">  
-</div>  
-
-</style>
+<div class="culto-img">
+  <img src="a39723b2527e49cda0dc34bed668c7a5.jpg" alt="Igreja EMUNAH">
 </div>
-<!-- 📲 WHATSAPP -->
-<a class="btn" 
-href="https://wa.me/556496078723?text=Irei%20comparecer%20ao%20culto!" 
+
+<a class="btn"
+href="https://wa.me/556496078723?text=Irei%20comparecer%20ao%20culto!"
 target="_blank">
 Confirmar Presença
 </a>
 
 </div>
 
-<!-- ⚙️ SCRIPT -->
 <script>
 
-// sair da intro
-setTimeout(() => {
-  document.getElementById("intro").style.display = "none";
-  document.getElementById("site").style.display = "block";
-}, 2000);
+// Intro
+setTimeout(()=>{
+  document.getElementById("intro").style.display="none";
+  document.getElementById("site").style.display="block";
+},2000);
 
-// áudio (fallback)
-function playAudio() {
-  const audio = document.getElementById("audio");
+// Áudio
+function playAudio(){
+  const audio=document.getElementById("audio");
   audio.play().catch(()=>{});
 }
+window.addEventListener("load",playAudio);
+document.addEventListener("click",playAudio,{once:true});
 
-window.addEventListener("load", playAudio);
-document.addEventListener("click", playAudio, { once: true });
+// Mostrar foto quinta
+function toggleFoto(){
+  const foto=document.getElementById("fotoQuinta");
+  if(foto.style.display==="block"){
+    foto.style.display="none";
+  }else{
+    foto.style.display="block";
+  }
+}
 
 </script>
 
