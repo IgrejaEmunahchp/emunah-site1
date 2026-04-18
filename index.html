@@ -5,6 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>EMUNAH - Igreja</title>
 
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
 <style>
 
 /* RESET */
@@ -15,10 +17,11 @@
 }
 
 body{
-  font-family: Arial, sans-serif;
-  background: #111;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg,#0f0f0f,#1a1a1a);
   color:white;
   text-align:center;
+  overflow-x:hidden;
 }
 
 /* INTRO */
@@ -31,93 +34,113 @@ body{
   justify-content:center;
   align-items:center;
   z-index:9999;
+  animation: fadeOut 1s ease 2s forwards;
 }
 
 #intro img{
-  width:200px;
+  width:220px;
   max-width:80%;
-  border-radius:15px;
+  border-radius:20px;
+  box-shadow:0 0 40px rgba(255,215,0,0.5);
 }
 
-/* CONTEÚDO */
+@keyframes fadeOut{
+  to{
+    opacity:0;
+    visibility:hidden;
+  }
+}
+
+/* SITE */
 #site{
-  display:none;
-  padding:30px 15px;
-  animation: fadeIn 1s ease-in-out;
+  padding:40px 15px;
+  animation: fadeIn 1.5s ease-in-out;
 }
 
 @keyframes fadeIn{
-  from{opacity:0}
-  to{opacity:1}
+  from{opacity:0; transform:translateY(20px)}
+  to{opacity:1; transform:translateY(0)}
 }
 
 h1{
   color:gold;
-  margin-bottom:25px;
-  font-size:28px;
+  margin-bottom:35px;
+  font-size:32px;
+  letter-spacing:2px;
 }
 
-/* CARDS */
+/* CARDS PROFISSIONAIS */
 .card{
-  background:#1c1c1c;
-  margin:10px auto;
-  padding:15px;
-  border-radius:12px;
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(10px);
+  margin:15px auto;
+  padding:18px;
+  border-radius:15px;
   max-width:500px;
   font-size:16px;
-  box-shadow:0 5px 15px rgba(0,0,0,0.4);
+  box-shadow:0 8px 25px rgba(0,0,0,0.6);
+  transition:0.3s;
+}
+
+.card:hover{
+  transform:translateY(-5px);
+  box-shadow:0 15px 35px rgba(255,215,0,0.2);
 }
 
 /* BOTÃO VER FOTO */
 .btn-ver{
-  margin-top:10px;
-  padding:8px 15px;
+  margin-top:12px;
+  padding:10px 18px;
   background:gold;
   color:#000;
   border:none;
   border-radius:8px;
   cursor:pointer;
-  font-weight:bold;
+  font-weight:600;
+  transition:0.3s;
 }
 
 .btn-ver:hover{
-  opacity:0.8;
+  transform:scale(1.05);
 }
 
 /* FOTO QUINTA */
 #fotoQuinta{
   display:none;
-  margin:15px auto;
-  max-width:350px;
+  margin:20px auto;
+  max-width:380px;
   width:100%;
-  border-radius:12px;
-  box-shadow:0 5px 15px rgba(0,0,0,0.5);
+  border-radius:15px;
+  box-shadow:0 10px 30px rgba(0,0,0,0.7);
 }
 
 /* FOTO FINAL */
 .culto-img img{
   width:100%;
   max-width:500px;
-  margin-top:25px;
-  border-radius:15px;
+  margin-top:35px;
+  border-radius:20px;
+  box-shadow:0 15px 40px rgba(0,0,0,0.6);
 }
 
-/* BOTÃO WHATSAPP */
+/* BOTÃO WHATSAPP PROFISSIONAL */
 .btn{
   display:inline-block;
-  margin-top:30px;
-  padding:15px 25px;
-  background:#25D366;
+  margin-top:40px;
+  padding:16px 30px;
+  background: linear-gradient(45deg,#25D366,#1ebe5d);
   color:white;
   text-decoration:none;
-  border-radius:10px;
-  font-weight:bold;
-  box-shadow:0 5px 15px rgba(0,0,0,0.4);
+  border-radius:50px;
+  font-weight:600;
+  letter-spacing:1px;
+  box-shadow:0 10px 25px rgba(37,211,102,0.4);
+  transition:0.3s;
 }
 
 .btn:hover{
-  transform:scale(1.05);
-  transition:0.3s;
+  transform:scale(1.08);
+  box-shadow:0 15px 35px rgba(37,211,102,0.6);
 }
 
 </style>
@@ -125,7 +148,7 @@ h1{
 
 <body>
 
-<!-- 🔊 ÁUDIO -->
+<!-- ÁUDIO -->
 <audio id="audio" autoplay loop>
   <source src="louvor.mp3" type="audio/mpeg">
 </audio>
@@ -168,11 +191,11 @@ Confirmar Presença
 
 <script>
 
-// Intro
-setTimeout(()=>{
-  document.getElementById("intro").style.display="none";
-  document.getElementById("site").style.display="block";
-},2000);
+// Mostrar foto quinta
+function toggleFoto(){
+  const foto=document.getElementById("fotoQuinta");
+  foto.style.display = foto.style.display === "block" ? "none" : "block";
+}
 
 // Áudio
 function playAudio(){
@@ -181,16 +204,6 @@ function playAudio(){
 }
 window.addEventListener("load",playAudio);
 document.addEventListener("click",playAudio,{once:true});
-
-// Mostrar foto quinta
-function toggleFoto(){
-  const foto=document.getElementById("fotoQuinta");
-  if(foto.style.display==="block"){
-    foto.style.display="none";
-  }else{
-    foto.style.display="block";
-  }
-}
 
 </script>
 
