@@ -17,14 +17,31 @@
 }
 
 body{
-  font-family: 'Poppins', sans-serif;
-  background: linear-gradient(135deg,#0f0f0f,#1a1a1a);
+  font-family:'Poppins',sans-serif;
+  background:#0b0b0b;
   color:white;
   text-align:center;
   overflow-x:hidden;
 }
 
-/* INTRO */
+/* FUNDO ANIMADO */
+body::before{
+  content:"";
+  position:fixed;
+  width:200%;
+  height:200%;
+  background:radial-gradient(circle,rgba(255,215,0,0.08) 1px, transparent 1px);
+  background-size:40px 40px;
+  animation:moveBg 25s linear infinite;
+  z-index:-1;
+}
+
+@keyframes moveBg{
+  from{transform:translate(0,0);}
+  to{transform:translate(-200px,-200px);}
+}
+
+/* INTRO CINEMA */
 #intro{
   position:fixed;
   width:100%;
@@ -34,113 +51,126 @@ body{
   justify-content:center;
   align-items:center;
   z-index:9999;
-  animation: fadeOut 1s ease 2s forwards;
+  animation:fadeOut 1.2s ease 3s forwards;
 }
 
 #intro img{
-  width:220px;
-  max-width:80%;
-  border-radius:20px;
-  box-shadow:0 0 40px rgba(255,215,0,0.5);
+  width:240px;
+  border-radius:25px;
+  box-shadow:0 0 60px rgba(255,215,0,0.7);
+  animation:zoom 2s ease-in-out infinite alternate;
+}
+
+@keyframes zoom{
+  from{transform:scale(1);}
+  to{transform:scale(1.05);}
 }
 
 @keyframes fadeOut{
-  to{
-    opacity:0;
-    visibility:hidden;
-  }
+  to{opacity:0; visibility:hidden;}
 }
 
-/* SITE */
+/* CONTAINER APP STYLE */
 #site{
-  padding:40px 15px;
-  animation: fadeIn 1.5s ease-in-out;
+  padding:60px 15px;
+  max-width:500px;
+  margin:auto;
 }
 
-@keyframes fadeIn{
-  from{opacity:0; transform:translateY(20px)}
-  to{opacity:1; transform:translateY(0)}
+/* LOGO */
+.logo{
+  width:170px;
+  margin-bottom:25px;
+  border-radius:20px;
+  box-shadow:0 10px 40px rgba(255,215,0,0.3);
 }
 
+/* TÍTULO */
 h1{
   color:gold;
-  margin-bottom:35px;
-  font-size:32px;
-  letter-spacing:2px;
+  font-size:26px;
+  margin-bottom:30px;
+  letter-spacing:3px;
 }
 
-/* CARDS PROFISSIONAIS */
+/* CARDS GLASS */
 .card{
-  background: rgba(255,255,255,0.05);
-  backdrop-filter: blur(10px);
-  margin:15px auto;
-  padding:18px;
-  border-radius:15px;
-  max-width:500px;
-  font-size:16px;
-  box-shadow:0 8px 25px rgba(0,0,0,0.6);
-  transition:0.3s;
+  background:rgba(255,255,255,0.05);
+  backdrop-filter:blur(15px);
+  padding:20px;
+  margin:18px 0;
+  border-radius:20px;
+  box-shadow:0 15px 40px rgba(0,0,0,0.6);
+  transition:0.4s;
 }
 
 .card:hover{
-  transform:translateY(-5px);
-  box-shadow:0 15px 35px rgba(255,215,0,0.2);
+  transform:translateY(-8px);
+  box-shadow:0 20px 50px rgba(255,215,0,0.25);
 }
 
-/* BOTÃO VER FOTO */
+/* BOTÃO VER FOTO PREMIUM */
 .btn-ver{
-  margin-top:12px;
-  padding:10px 18px;
-  background:gold;
-  color:#000;
+  margin-top:15px;
+  padding:12px 25px;
   border:none;
-  border-radius:8px;
-  cursor:pointer;
+  border-radius:50px;
   font-weight:600;
+  cursor:pointer;
+  background:linear-gradient(45deg,#FFD700,#ffcc00);
+  color:black;
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
   transition:0.3s;
+  box-shadow:0 8px 25px rgba(255,215,0,0.5);
+}
+
+.btn-ver::before{
+  content:"📸";
 }
 
 .btn-ver:hover{
-  transform:scale(1.05);
+  transform:scale(1.1);
 }
 
-/* FOTO QUINTA */
+/* FOTO */
 #fotoQuinta{
   display:none;
-  margin:20px auto;
-  max-width:380px;
+  opacity:0;
   width:100%;
-  border-radius:15px;
-  box-shadow:0 10px 30px rgba(0,0,0,0.7);
+  max-width:360px;
+  margin:20px auto;
+  border-radius:20px;
+  transition:0.5s;
+  box-shadow:0 15px 40px rgba(0,0,0,0.7);
 }
 
 /* FOTO FINAL */
 .culto-img img{
   width:100%;
-  max-width:500px;
+  border-radius:25px;
   margin-top:35px;
-  border-radius:20px;
-  box-shadow:0 15px 40px rgba(0,0,0,0.6);
+  box-shadow:0 20px 60px rgba(0,0,0,0.7);
 }
 
-/* BOTÃO WHATSAPP PROFISSIONAL */
+/* BOTÃO WHATSAPP CINEMA */
 .btn{
   display:inline-block;
-  margin-top:40px;
-  padding:16px 30px;
-  background: linear-gradient(45deg,#25D366,#1ebe5d);
+  margin-top:45px;
+  padding:18px 35px;
+  background:linear-gradient(45deg,#25D366,#1ebe5d);
   color:white;
   text-decoration:none;
   border-radius:50px;
   font-weight:600;
   letter-spacing:1px;
-  box-shadow:0 10px 25px rgba(37,211,102,0.4);
+  box-shadow:0 15px 35px rgba(37,211,102,0.5);
   transition:0.3s;
 }
 
 .btn:hover{
-  transform:scale(1.08);
-  box-shadow:0 15px 35px rgba(37,211,102,0.6);
+  transform:scale(1.1);
 }
 
 </style>
@@ -148,55 +178,59 @@ h1{
 
 <body>
 
-<!-- ÁUDIO -->
 <audio id="audio" autoplay loop>
   <source src="louvor.mp3" type="audio/mpeg">
 </audio>
 
-<!-- INTRO -->
 <div id="intro">
-  <img src="IMG-20260319-WA0002.jpg" alt="EMUNAH">
-</div>
-
-<!-- SITE -->
-<div id="site">
   <img src="IMG-20260319-WA0002.jpg">
-
-<div class="card">Terça - Minha família no altar (20:00 Horas - BR)</div>
-<div class="card">Quarta - Oração e ensaio (20:00 Horas - BR)</div>
-
-<div class="card">
-  Quinta - Culto de libertação (20:00 Horas - BR)
-  <br>
-  <button class="btn-ver" onclick="toggleFoto()">Ver Foto</button>
 </div>
 
-<img src="f05036ad02e941c8ac8a829997e7d606.jpg" id="fotoQuinta">
+<div id="site">
 
-<div class="card">Sábado - Culto a cada 15 dias (16:00 Horas - BR)</div>
-<div class="card">Domingo - Culto (19:00 Horas - BR)</div>
+  <img src="IMG-20260319-WA0002.jpg" class="logo">
+  <h1>IGREJA EMUNAH</h1>
 
-<div class="culto-img">
-  <img src="4ec1e477225f43dbb3f68bb7ea975e37.jpg" alt="Igreja EMUNAH">
-</div>
+  <div class="card">Terça - Minha família no altar (20:00 Horas - BR)</div>
+  <div class="card">Quarta - Oração e ensaio (20:00 Horas - BR)</div>
 
-<a class="btn"
-href="https://wa.me/556496078723?text=Irei%20comparecer%20ao%20culto!"
-target="_blank">
-Confirmar Presença
-</a>
+  <div class="card">
+    Quinta - Culto de libertação (20:00 Horas - BR)
+    <br>
+    <button class="btn-ver" onclick="toggleFoto()">Ver Foto</button>
+  </div>
+
+  <img src="f05036ad02e941c8ac8a829997e7d606.jpg" id="fotoQuinta">
+
+  <div class="card">Sábado - Culto a cada 15 dias (16:00 Horas - BR)</div>
+  <div class="card">Domingo - Culto (19:00 Horas - BR)</div>
+
+  <div class="culto-img">
+    <img src="4ec1e477225f43dbb3f68bb7ea975e37.jpg">
+  </div>
+
+  <a class="btn"
+  href="https://wa.me/556496078723?text=Irei%20comparecer%20ao%20culto!"
+  target="_blank">
+  Confirmar Presença
+  </a>
 
 </div>
 
 <script>
 
-// Mostrar foto quinta
 function toggleFoto(){
-  const foto=document.getElementById("fotoQuinta");
-  foto.style.display = foto.style.display === "block" ? "none" : "block";
+  const foto = document.getElementById("fotoQuinta");
+
+  if(foto.style.display === "block"){
+    foto.style.opacity = "0";
+    setTimeout(()=>{foto.style.display="none"},400);
+  }else{
+    foto.style.display = "block";
+    setTimeout(()=>{foto.style.opacity="1"},50);
+  }
 }
 
-// Áudio
 function playAudio(){
   const audio=document.getElementById("audio");
   audio.play().catch(()=>{});
