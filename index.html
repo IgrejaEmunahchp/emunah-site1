@@ -9,63 +9,25 @@
 
 <style>
 
-/* RESET */
 *{margin:0;padding:0;box-sizing:border-box;}
 
 body{
   font-family:'Poppins',sans-serif;
-  background:#0b0b0b;
+  background:#000;
   color:white;
   text-align:center;
   overflow-x:hidden;
 }
 
-/* FUNDO PREMIUM */
-body::before{
-  content:"";
+/* FUNDO ESTRELAS */
+canvas{
   position:fixed;
-  width:200%;
-  height:200%;
-  background:radial-gradient(circle,rgba(255,215,0,0.07) 1px, transparent 1px);
-  background-size:35px 35px;
-  animation:moveBg 30s linear infinite;
+  top:0;
+  left:0;
   z-index:-1;
 }
 
-@keyframes moveBg{
-  from{transform:translate(0,0);}
-  to{transform:translate(-300px,-300px);}
-}
-
-/* INTRO */
-#intro{
-  position:fixed;
-  width:100%;
-  height:100vh;
-  background:#000;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  z-index:9999;
-  animation:fadeOut 1.2s ease 3s forwards;
-}
-
-#intro img{
-  width:240px;
-  border-radius:25px;
-  box-shadow:0 0 60px rgba(255,215,0,0.8);
-  animation:zoom 2s ease-in-out infinite alternate;
-}
-
-@keyframes zoom{
-  from{transform:scale(1);}
-  to{transform:scale(1.08);}
-}
-
-@keyframes fadeOut{
-  to{opacity:0; visibility:hidden;}
-}
-
+/* CONTAINER */
 #site{
   padding:70px 18px;
   max-width:500px;
@@ -76,7 +38,7 @@ body::before{
   width:170px;
   margin-bottom:25px;
   border-radius:20px;
-  box-shadow:0 10px 40px rgba(255,215,0,0.3);
+  box-shadow:0 10px 40px rgba(255,215,0,0.4);
 }
 
 h1{
@@ -86,7 +48,22 @@ h1{
   letter-spacing:3px;
 }
 
-/* CARD */
+/* CONTADOR */
+.counter-box{
+  background:rgba(255,215,0,0.1);
+  padding:15px;
+  border-radius:20px;
+  margin-bottom:25px;
+  font-weight:600;
+  box-shadow:0 0 20px rgba(255,215,0,0.4);
+}
+
+.counter-number{
+  font-size:28px;
+  color:#FFD700;
+}
+
+/* CARDS */
 .card{
   position:relative;
   background:rgba(255,255,255,0.05);
@@ -95,38 +72,41 @@ h1{
   margin:18px 0;
   border-radius:22px;
   box-shadow:0 15px 45px rgba(0,0,0,0.6);
-  transition:0.4s;
   cursor:pointer;
+  transition:0.4s;
 }
 
 .card:hover{
-  transform:translateY(-8px) scale(1.02);
+  transform:translateY(-8px);
   box-shadow:0 20px 60px rgba(255,215,0,0.25);
 }
 
-/* CARD COM NOVIDADE */
-.card.novo{
-  border:1px solid rgba(255,215,0,0.6);
-  animation:glow 2s infinite alternate;
+.card img{
+  width:100%;
+  border-radius:18px;
+  margin-top:15px;
+  display:none;
+  opacity:0;
+  transform:scale(0.95);
+  transition:0.5s ease;
 }
 
-@keyframes glow{
-  from{box-shadow:0 0 15px rgba(255,215,0,0.4);}
-  to{box-shadow:0 0 30px rgba(255,215,0,0.9);}
+.card img.show{
+  display:block;
+  opacity:1;
+  transform:scale(1);
 }
 
-/* SELO NOVIDADE */
 .badge{
   position:absolute;
   top:-10px;
   right:-10px;
-  background:linear-gradient(45deg,#FFD700,#ffae00);
+  background:gold;
   color:black;
   padding:6px 12px;
   font-size:12px;
   font-weight:700;
   border-radius:20px;
-  box-shadow:0 5px 15px rgba(255,215,0,0.6);
   animation:pulseBadge 1.5s infinite;
 }
 
@@ -136,95 +116,147 @@ h1{
   100%{transform:scale(1);}
 }
 
-/* IMAGEM */
-.card img{
-  width:100%;
-  border-radius:18px;
-  margin-top:15px;
-  display:none;
-  opacity:0;
-  transform:scale(0.95);
-  transition:0.5s ease;
-  box-shadow:0 15px 40px rgba(0,0,0,0.7);
-}
-
-.card img.show{
-  display:block;
-  opacity:1;
-  transform:scale(1);
-}
-
-/* BOTÃO */
-.btn{
-  display:inline-block;
-  margin-top:45px;
-  padding:18px 35px;
-  background:linear-gradient(45deg,#25D366,#1ebe5d);
-  color:white;
-  text-decoration:none;
+/* PLAYER FLUTUANTE */
+.player{
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  background:rgba(0,0,0,0.8);
+  padding:15px 20px;
   border-radius:50px;
-  font-weight:600;
-  letter-spacing:1px;
-  animation:pulse 2s infinite;
+  box-shadow:0 0 20px rgba(255,215,0,0.6);
+  display:flex;
+  align-items:center;
+  gap:10px;
 }
 
-@keyframes pulse{
-  0%{box-shadow:0 0 15px rgba(37,211,102,0.4);}
-  50%{box-shadow:0 0 30px rgba(37,211,102,0.9);}
-  100%{box-shadow:0 0 15px rgba(37,211,102,0.4);}
+.player button{
+  background:gold;
+  border:none;
+  padding:8px 15px;
+  border-radius:20px;
+  cursor:pointer;
+  font-weight:600;
 }
 
 </style>
 </head>
-
 <body>
 
-<div id="intro">
-  <img src="IMG-20260319-WA0002.jpg">
-</div>
+<canvas id="stars"></canvas>
 
 <div id="site">
 
   <img src="IMG-20260319-WA0002.jpg" class="logo">
   <h1>IGREJA EMUNAH</h1>
 
-  <div class="card">Terça - Minha família no altar (20:00 Horas - BR)</div>
-  <div class="card">Quarta - Oração e ensaio (20:00 Horas - BR)</div>
+  <!-- CONTADOR -->
+  <div class="counter-box">
+    👥 Membros online agora:
+    <div class="counter-number" id="counter">0</div>
+  </div>
 
-  <!-- QUINTA -->
-  <div class="card novo" onclick="toggleCard(this)">
+  <div class="card">
+    Terça - Minha família no altar (20:00 Horas - BR)
+  </div>
+
+  <div class="card">
+    Quarta - Oração e ensaio (20:00 Horas - BR)
+  </div>
+
+  <div class="card" onclick="toggleCard(this)">
     <div class="badge">NOVIDADE</div>
-    Quinta - Culto de libertação (20:00 Horas - BR)
+    Quinta - Culto de libertação
     <img src="f05036ad02e941c8ac8a829997e7d606.jpg">
   </div>
 
-  <!-- SÁBADO -->
-  <div class="card novo" onclick="toggleCard(this)">
+  <div class="card" onclick="toggleCard(this)">
     <div class="badge">NOVIDADE</div>
-    Sábado - Culto a cada 15 dias (16:00 Horas - BR)
+    Sábado - Culto
     <img src="IMG-20260422-WA0005.jpg">
   </div>
 
-  <!-- DOMINGO -->
-  <div class="card novo" onclick="toggleCard(this)">
+  <div class="card" onclick="toggleCard(this)">
     <div class="badge">NOVIDADE</div>
-    Domingo - Culto (19:00 Horas - BR)
+    Domingo - Culto
     <img src="b8bd9795c5654bd89aac7f42482ab926.jpg">
   </div>
 
-  <a class="btn"
-  href="https://wa.me/556496078723?text=Irei%20comparecer%20ao%20culto!"
-  target="_blank">
-  Confirmar Presença
-  </a>
-
 </div>
 
+<!-- PLAYER -->
+<div class="player">
+  🎵 Louvor
+  <button onclick="toggleMusic()">Play</button>
+</div>
+
+<audio id="audio" loop>
+  <source src="louvor.mp3" type="audio/mpeg">
+</audio>
+
 <script>
+
+/* TOGGLE IMAGEM */
 function toggleCard(card){
   const img = card.querySelector("img");
   img.classList.toggle("show");
 }
+
+/* PLAYER */
+function toggleMusic(){
+  const audio=document.getElementById("audio");
+  if(audio.paused){
+    audio.play();
+  }else{
+    audio.pause();
+  }
+}
+
+/* CONTADOR FAKE ANIMADO */
+let count=0;
+let target=Math.floor(Math.random()*50)+50;
+
+let counterInterval=setInterval(()=>{
+  if(count<target){
+    count++;
+    document.getElementById("counter").innerText=count;
+  }else{
+    clearInterval(counterInterval);
+  }
+},40);
+
+/* FUNDO ESTRELAS */
+const canvas=document.getElementById("stars");
+const ctx=canvas.getContext("2d");
+
+canvas.width=window.innerWidth;
+canvas.height=window.innerHeight;
+
+let stars=[];
+for(let i=0;i<150;i++){
+  stars.push({
+    x:Math.random()*canvas.width,
+    y:Math.random()*canvas.height,
+    radius:Math.random()*1.5,
+    speed:Math.random()*0.5
+  });
+}
+
+function animate(){
+  ctx.clearRect(0,0,canvas.width,canvas.height);
+  ctx.fillStyle="white";
+  stars.forEach(s=>{
+    ctx.beginPath();
+    ctx.arc(s.x,s.y,s.radius,0,Math.PI*2);
+    ctx.fill();
+    s.y+=s.speed;
+    if(s.y>canvas.height){s.y=0;}
+  });
+  requestAnimationFrame(animate);
+}
+
+animate();
+
 </script>
 
 </body>
