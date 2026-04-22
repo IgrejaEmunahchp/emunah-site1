@@ -10,11 +10,7 @@
 <style>
 
 /* RESET */
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-}
+*{margin:0;padding:0;box-sizing:border-box;}
 
 body{
   font-family:'Poppins',sans-serif;
@@ -24,7 +20,7 @@ body{
   overflow-x:hidden;
 }
 
-/* FUNDO ANIMADO PREMIUM */
+/* FUNDO PREMIUM */
 body::before{
   content:"";
   position:fixed;
@@ -90,8 +86,9 @@ h1{
   letter-spacing:3px;
 }
 
-/* CARDS PREMIUM */
+/* CARD */
 .card{
+  position:relative;
   background:rgba(255,255,255,0.05);
   backdrop-filter:blur(18px);
   padding:22px;
@@ -107,7 +104,39 @@ h1{
   box-shadow:0 20px 60px rgba(255,215,0,0.25);
 }
 
-/* IMAGENS ESCONDIDAS */
+/* CARD COM NOVIDADE */
+.card.novo{
+  border:1px solid rgba(255,215,0,0.6);
+  animation:glow 2s infinite alternate;
+}
+
+@keyframes glow{
+  from{box-shadow:0 0 15px rgba(255,215,0,0.4);}
+  to{box-shadow:0 0 30px rgba(255,215,0,0.9);}
+}
+
+/* SELO NOVIDADE */
+.badge{
+  position:absolute;
+  top:-10px;
+  right:-10px;
+  background:linear-gradient(45deg,#FFD700,#ffae00);
+  color:black;
+  padding:6px 12px;
+  font-size:12px;
+  font-weight:700;
+  border-radius:20px;
+  box-shadow:0 5px 15px rgba(255,215,0,0.6);
+  animation:pulseBadge 1.5s infinite;
+}
+
+@keyframes pulseBadge{
+  0%{transform:scale(1);}
+  50%{transform:scale(1.1);}
+  100%{transform:scale(1);}
+}
+
+/* IMAGEM */
 .card img{
   width:100%;
   border-radius:18px;
@@ -125,7 +154,7 @@ h1{
   transform:scale(1);
 }
 
-/* BOTÃO WHATSAPP CINEMA */
+/* BOTÃO */
 .btn{
   display:inline-block;
   margin-top:45px;
@@ -136,9 +165,7 @@ h1{
   border-radius:50px;
   font-weight:600;
   letter-spacing:1px;
-  box-shadow:0 15px 35px rgba(37,211,102,0.5);
   animation:pulse 2s infinite;
-  transition:0.3s;
 }
 
 @keyframes pulse{
@@ -147,18 +174,10 @@ h1{
   100%{box-shadow:0 0 15px rgba(37,211,102,0.4);}
 }
 
-.btn:hover{
-  transform:scale(1.1);
-}
-
 </style>
 </head>
 
 <body>
-
-<audio id="audio" autoplay loop>
-  <source src="louvor.mp3" type="audio/mpeg">
-</audio>
 
 <div id="intro">
   <img src="IMG-20260319-WA0002.jpg">
@@ -169,25 +188,26 @@ h1{
   <img src="IMG-20260319-WA0002.jpg" class="logo">
   <h1>IGREJA EMUNAH</h1>
 
-  <div class="card">
-    Terça - Minha família no altar (20:00 Horas - BR)
-  </div>
+  <div class="card">Terça - Minha família no altar (20:00 Horas - BR)</div>
+  <div class="card">Quarta - Oração e ensaio (20:00 Horas - BR)</div>
 
-  <div class="card">
-    Quarta - Oração e ensaio (20:00 Horas - BR)
-  </div>
-
-  <div class="card">
+  <!-- QUINTA -->
+  <div class="card novo" onclick="toggleCard(this)">
+    <div class="badge">NOVIDADE</div>
     Quinta - Culto de libertação (20:00 Horas - BR)
     <img src="f05036ad02e941c8ac8a829997e7d606.jpg">
   </div>
 
-  <div class="card" onclick="toggleCard(this)">
+  <!-- SÁBADO -->
+  <div class="card novo" onclick="toggleCard(this)">
+    <div class="badge">NOVIDADE</div>
     Sábado - Culto a cada 15 dias (16:00 Horas - BR)
     <img src="IMG-20260422-WA0005.jpg">
   </div>
 
-  <div class="card" onclick="toggleCard(this)">
+  <!-- DOMINGO -->
+  <div class="card novo" onclick="toggleCard(this)">
+    <div class="badge">NOVIDADE</div>
     Domingo - Culto (19:00 Horas - BR)
     <img src="b8bd9795c5654bd89aac7f42482ab926.jpg">
   </div>
@@ -201,20 +221,10 @@ h1{
 </div>
 
 <script>
-
 function toggleCard(card){
   const img = card.querySelector("img");
   img.classList.toggle("show");
 }
-
-function playAudio(){
-  const audio=document.getElementById("audio");
-  audio.play().catch(()=>{});
-}
-
-window.addEventListener("load",playAudio);
-document.addEventListener("click",playAudio,{once:true});
-
 </script>
 
 </body>
