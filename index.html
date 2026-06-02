@@ -40,12 +40,11 @@ body{
     gap:15px;
 }
 
-.card img{
-    width:100%;
-    height:180px;
-    object-fit:cover;
-    border-radius:12px;
-    margin-bottom:10px;
+.card img {
+  width: 100%;
+  aspect-ratio: 3/4;   /* fixa a proporção 3:4 do elemento */
+  object-fit: cover;    /* preenche o espaço definido pela proporção */
+  object-position: center;
 }
 
 button{
