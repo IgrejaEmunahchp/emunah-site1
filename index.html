@@ -5,37 +5,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Igreja EMUNAH</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-
 <style>
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
-
 body{
-    font-family:'Poppins',sans-serif;
+    font-family:Arial,sans-serif;
     background:#000;
     color:#fff;
-    overflow-x:hidden;
-}
-
-canvas{
-    position:fixed;
-    inset:0;
-    z-index:-1;
-}
-
-header{
-    padding:25px;
-    text-align:center;
-}
-
-h1{
-    color:gold;
-    letter-spacing:3px;
+    margin:0;
 }
 
 .container{
@@ -44,34 +19,19 @@ h1{
     padding:20px;
 }
 
-.card,
 .hero,
-.verse,
+.card,
 .about,
-.gallery,
 .prayer{
-    background:rgba(255,255,255,.06);
-    backdrop-filter:blur(16px);
-    border:1px solid rgba(255,215,0,.2);
-    border-radius:20px;
+    background:#111;
+    border-radius:15px;
     padding:20px;
-    margin:18px 0;
-}
-
-.hero{
-    text-align:center;
+    margin:15px 0;
 }
 
 .logo{
     width:170px;
-    border-radius:20px;
-    margin-bottom:15px;
-}
-
-.countdown{
-    font-size:1.2rem;
-    color:gold;
-    margin-top:10px;
+    border-radius:15px;
 }
 
 .grid{
@@ -80,17 +40,19 @@ h1{
     gap:15px;
 }
 
-.gallery img{
+.card img{
     width:100%;
-    border-radius:15px;
+    height:180px;
+    object-fit:cover;
+    border-radius:12px;
+    margin-bottom:10px;
 }
 
-.card{
-    transition:.3s;
-}
-
-.card:hover{
-    transform:translateY(-5px);
+button{
+    padding:10px 15px;
+    border:none;
+    border-radius:10px;
+    cursor:pointer;
 }
 
 .whatsapp{
@@ -98,6 +60,7 @@ h1{
     right:20px;
     bottom:20px;
     background:#25D366;
+    color:#fff;
     width:65px;
     height:65px;
     border-radius:50%;
@@ -105,58 +68,19 @@ h1{
     align-items:center;
     justify-content:center;
     text-decoration:none;
-    font-size:28px;
-    box-shadow:0 0 25px rgba(37,211,102,.8);
-}
-
-.top{
-    position:fixed;
-    left:20px;
-    bottom:20px;
-    background:gold;
-    color:#000;
-    padding:12px 15px;
-    border-radius:50%;
-    cursor:pointer;
-    font-weight:bold;
-}
-
-.player{
-    margin-top:15px;
-}
-
-button{
-    background:gold;
-    border:none;
-    padding:10px 16px;
-    border-radius:12px;
-    font-weight:700;
-    cursor:pointer;
 }
 
 input,
 textarea{
     width:100%;
-    padding:12px;
-    border-radius:12px;
-    border:none;
+    padding:10px;
     margin-top:10px;
-    font-family:Poppins,sans-serif;
+    border-radius:10px;
 }
-
-h2{
-    margin-bottom:10px;
-}
-
 </style>
 </head>
+
 <body>
-
-<canvas id="bg"></canvas>
-
-<header>
-    <h1>IGREJA EMUNAH</h1>
-</header>
 
 <div class="container">
 
@@ -164,59 +88,68 @@ h2{
 
         <img src="IMG-20260319-WA0002.jpg" class="logo">
 
-        <h2>Bem-vindo à Igreja EMUNAH</h2>
+        <h1>IGREJA EMUNAH</h1>
 
         <p>Fé, comunhão e adoração.</p>
 
-        <div id="countdown" class="countdown"></div>
+        <audio id="audio" loop>
+            <source src="louvor.mp3" type="audio/mpeg">
+        </audio>
 
-        <div class="player">
-
-            <audio id="audio" loop>
-                <source src="louvor.mp3" type="audio/mpeg">
-            </audio>
-
-            <button onclick="toggleMusic()" id="musicBtn">
-                ▶ Play Louvor
-            </button>
-
-        </div>
+        <button id="musicBtn" onclick="toggleMusic()">
+            ▶ Play Louvor
+        </button>
 
     </div>
 
-    <div class="verse">
+    <h2>📖 Versículo do Dia</h2>
 
-        <h2>📖 Versículo do Dia</h2>
-
-        <p>
-            "Entrega o teu caminho ao Senhor;
-            confia nele, e ele tudo fará."
-        </p>
-
-        <p><strong>Salmos 37:5</strong></p>
-
-    </div>
+    <p>
+        "Entrega o teu caminho ao Senhor;
+        confia nele, e ele tudo fará."
+        — Salmos 37:5
+    </p>
 
     <div class="grid">
 
         <div class="card">
-            📖 Terça - Minha família no altar (20h)
+            <img src="d1336394ddf2495e894e5c1ad077bb32.jpg">
+
+            <h3>📖 Terça</h3>
+
+            <p>Minha família no altar - 20h</p>
         </div>
 
         <div class="card">
-            🙏 Quarta - Oração e ensaio (20h)
+            <img src="quarta.jpg">
+
+            <h3>🙏 Quarta</h3>
+
+            <p>Oração e ensaio - 20h</p>
         </div>
 
         <div class="card">
-            🔥 Quinta - Culto de libertação
+            <img src="quinta.jpg">
+
+            <h3>🔥 Quinta</h3>
+
+            <p>Culto de libertação</p>
         </div>
 
         <div class="card">
-            🎶 Sábado - Culto
+            <img src="sabado.jpg">
+
+            <h3>🎶 Sábado</h3>
+
+            <p>Culto</p>
         </div>
 
         <div class="card">
-            ✨ Domingo - Culto
+            <img src="domingo.jpg">
+
+            <h3>✨ Domingo</h3>
+
+            <p>Culto</p>
         </div>
 
     </div>
@@ -232,21 +165,26 @@ h2{
 
     </div>
 
-    <div class="gallery">
-
-        <h2>Galeria</h2>
-
-        <img src="d1336394ddf2495e894e5c1ad077bb32.jpg" alt="Galeria da Igreja">
-
-    </div>
-
     <div class="prayer">
 
-        <h2>Pedido de Oração</h2>
+        <h2>🙏 Pedido de Oração</h2>
 
-        <input type="text" placeholder="Seu nome">
+        <input
+        type="text"
+        id="nome"
+        placeholder="Seu nome">
 
-        <textarea rows="4" placeholder="Digite seu pedido de oração"></textarea>
+        <textarea
+        id="pedido"
+        rows="4"
+        placeholder="Digite seu pedido de oração">
+        </textarea>
+
+        <br><br>
+
+        <button onclick="enviarPedido()">
+            Enviar Pedido
+        </button>
 
     </div>
 
@@ -259,180 +197,53 @@ target="_blank">
 💬
 </a>
 
-<div
-class="top"
-onclick="window.scrollTo({top:0,behavior:'smooth'})">
-↑
-</div>
-
 <script>
-
-/* PLAYER */
 
 function toggleMusic(){
 
-    const audio =
-    document.getElementById("audio");
+    const a =
+    document.getElementById('audio');
 
-    const button =
-    document.getElementById("musicBtn");
+    const b =
+    document.getElementById('musicBtn');
 
-    if(audio.paused){
+    if(a.paused){
 
-        audio.play();
+        a.play();
 
-        button.textContent =
-        "⏸ Pause";
+        b.textContent =
+        '⏸ Pause';
 
     }else{
 
-        audio.pause();
+        a.pause();
 
-        button.textContent =
-        "▶ Play Louvor";
+        b.textContent =
+        '▶ Play Louvor';
     }
 }
 
-/* CONTADOR */
+function enviarPedido(){
 
-function updateCountdown(){
+    const nome =
+    document.getElementById('nome').value;
 
-    const now =
-    new Date();
+    const pedido =
+    document.getElementById('pedido').value;
 
-    let target =
-    new Date();
+    const mensagem =
+`🙏 PEDIDO DE ORAÇÃO
 
-    target.setHours(
-        20,
-        0,
-        0,
-        0
-    );
+Nome: ${nome}
 
-    while(
-        target <= now ||
-        target.getDay() !== 2
-    ){
-        target.setDate(
-            target.getDate()+1
-        );
-    }
+Pedido:
+${pedido}`;
 
-    const diff =
-    target - now;
-
-    const days =
-    Math.floor(diff/86400000);
-
-    const hours =
-    Math.floor(
-        diff%86400000/3600000
-    );
-
-    const minutes =
-    Math.floor(
-        diff%3600000/60000
-    );
-
-    const seconds =
-    Math.floor(
-        diff%60000/1000
-    );
-
-    document.getElementById(
-        "countdown"
-    ).innerText =
-    `Próximo culto em ${days}d ${hours}h ${minutes}m ${seconds}s`;
-}
-
-setInterval(
-    updateCountdown,
-    1000
-);
-
-updateCountdown();
-
-/* FUNDO ESTRELAS */
-
-const canvas =
-document.getElementById("bg");
-
-const ctx =
-canvas.getContext("2d");
-
-function resizeCanvas(){
-
-    canvas.width =
-    window.innerWidth;
-
-    canvas.height =
-    window.innerHeight;
-}
-
-resizeCanvas();
-
-window.addEventListener(
-    "resize",
-    resizeCanvas
-);
-
-const stars =
-[...Array(180)].map(() => ({
-
-    x:Math.random()*canvas.width,
-
-    y:Math.random()*canvas.height,
-
-    size:Math.random()*2+1,
-
-    speed:Math.random()*0.6
-
-}));
-
-function animateStars(){
-
-    ctx.clearRect(
-        0,
-        0,
-        canvas.width,
-        canvas.height
-    );
-
-    ctx.fillStyle =
-    "white";
-
-    stars.forEach(star=>{
-
-        ctx.beginPath();
-
-        ctx.arc(
-            star.x,
-            star.y,
-            star.size,
-            0,
-            Math.PI*2
-        );
-
-        ctx.fill();
-
-        star.y += star.speed;
-
-        if(
-            star.y >
-            canvas.height
-        ){
-            star.y = 0;
-        }
-
-    });
-
-    requestAnimationFrame(
-        animateStars
+    window.open(
+    `https://wa.me/556496078723?text=${encodeURIComponent(mensagem)}`,
+    '_blank'
     );
 }
-
-animateStars();
 
 </script>
 
