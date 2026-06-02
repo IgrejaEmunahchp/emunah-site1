@@ -8,149 +8,146 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
-
-*{margin:0;padding:0;box-sizing:border-box;}
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
 
 body{
-  font-family:'Poppins',sans-serif;
-  background:#000;
-  color:white;
-  text-align:center;
-  overflow-x:hidden;
+    font-family:'Poppins',sans-serif;
+    background:#000;
+    color:#fff;
+    text-align:center;
+    overflow-x:hidden;
 }
 
-/* FUNDO ESTRELAS */
 canvas{
-  position:fixed;
-  top:0;
-  left:0;
-  z-index:-1;
+    position:fixed;
+    top:0;
+    left:0;
+    z-index:-1;
 }
 
-/* CONTAINER */
 #site{
-  padding:70px 18px;
-  max-width:500px;
-  margin:auto;
+    max-width:520px;
+    margin:auto;
+    padding:70px 18px;
 }
 
 .logo{
-  width:170px;
-  margin-bottom:25px;
-  border-radius:20px;
-  box-shadow:0 10px 40px rgba(255,215,0,0.4);
+    width:170px;
+    border-radius:20px;
+    margin-bottom:20px;
+    box-shadow:0 10px 40px rgba(255,215,0,.4);
 }
 
 h1{
-  color:gold;
-  font-size:26px;
-  margin-bottom:30px;
-  letter-spacing:3px;
+    color:gold;
+    letter-spacing:3px;
+    margin-bottom:10px;
 }
 
-/* CARDS */
+.clock,
+.countdown{
+    background:rgba(255,255,255,.05);
+    backdrop-filter:blur(15px);
+    padding:12px;
+    border-radius:15px;
+    margin-bottom:15px;
+}
+
 .card{
-  position:relative;
-  background:rgba(255,255,255,0.05);
-  backdrop-filter:blur(18px);
-  padding:22px;
-  margin:18px 0;
-  border-radius:22px;
-  box-shadow:0 15px 45px rgba(0,0,0,0.6);
-  cursor:pointer;
-  transition:0.4s;
+    position:relative;
+    background:rgba(255,255,255,.05);
+    backdrop-filter:blur(18px);
+    border-radius:22px;
+    padding:22px;
+    margin:18px 0;
+    cursor:pointer;
+    transition:.4s;
+    animation:fadeUp .7s ease forwards;
 }
 
 .card:hover{
-  transform:translateY(-8px);
-  box-shadow:0 20px 60px rgba(255,215,0,0.25);
+    transform:translateY(-6px);
 }
 
 .card img{
-  width:100%;
-  border-radius:18px;
-  margin-top:15px;
-  display:none;
-  opacity:0;
-  transform:scale(0.95);
-  transition:0.5s ease;
+    width:100%;
+    border-radius:18px;
+    margin-top:15px;
+    display:none;
+    opacity:0;
+    transform:scale(.95);
+    transition:.5s;
 }
 
 .card img.show{
-  display:block;
-  opacity:1;
-  transform:scale(1);
+    display:block;
+    opacity:1;
+    transform:scale(1);
 }
 
 .badge{
-  position:absolute;
-  top:-10px;
-  right:-10px;
-  background:gold;
-  color:black;
-  padding:6px 12px;
-  font-size:12px;
-  font-weight:700;
-  border-radius:20px;
-  animation:pulseBadge 1.5s infinite;
+    position:absolute;
+    top:-10px;
+    right:-10px;
+    background:gold;
+    color:#000;
+    font-weight:700;
+    border-radius:20px;
+    padding:6px 12px;
 }
 
-@keyframes pulseBadge{
-  0%{transform:scale(1);}
-  50%{transform:scale(1.1);}
-  100%{transform:scale(1);}
-}
-
-/* PLAYER FLUTUANTE */
 .player{
-  position:fixed;
-  bottom:20px;
-  left:20px;
-  background:rgba(0,0,0,0.8);
-  padding:15px 20px;
-  border-radius:50px;
-  box-shadow:0 0 20px rgba(255,215,0,0.6);
-  display:flex;
-  align-items:center;
-  gap:10px;
+    position:fixed;
+    bottom:20px;
+    left:20px;
+    background:rgba(0,0,0,.8);
+    padding:15px 20px;
+    border-radius:50px;
+    box-shadow:0 0 20px rgba(255,215,0,.5);
 }
 
 .player button{
-  background:gold;
-  border:none;
-  padding:8px 15px;
-  border-radius:20px;
-  cursor:pointer;
-  font-weight:600;
+    background:gold;
+    border:none;
+    padding:8px 15px;
+    border-radius:20px;
+    font-weight:600;
+    cursor:pointer;
 }
 
-/* BOTÃO WHATSAPP FLUTUANTE */
 .whatsapp{
-  position:fixed;
-  bottom:20px;
-  right:20px;
-  width:65px;
-  height:65px;
-  background:#25D366;
-  border-radius:50%;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  box-shadow:0 0 25px rgba(37,211,102,0.8);
-  animation:pulseWpp 2s infinite;
-  text-decoration:none;
+    position:fixed;
+    bottom:20px;
+    right:20px;
+    width:65px;
+    height:65px;
+    background:#25D366;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-decoration:none;
+    box-shadow:0 0 25px rgba(37,211,102,.8);
 }
 
 .whatsapp img{
-  width:35px;
+    width:35px;
 }
 
-@keyframes pulseWpp{
-  0%{box-shadow:0 0 10px rgba(37,211,102,0.5);}
-  50%{box-shadow:0 0 30px rgba(37,211,102,1);}
-  100%{box-shadow:0 0 10px rgba(37,211,102,0.5);}
+@keyframes fadeUp{
+    from{
+        opacity:0;
+        transform:translateY(25px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
 }
-
 </style>
 </head>
 <body>
@@ -159,96 +156,195 @@ h1{
 
 <div id="site">
 
-  <img src="IMG-20260319-WA0002.jpg" class="logo">
-  <h1>IGREJA EMUNAH</h1>
+<img src="IMG-20260319-WA0002.jpg" class="logo">
 
-  <div class="card" onclick="toggleCard(this)">
+<h1>IGREJA EMUNAH</h1>
+
+<div class="clock" id="clock">
+Carregando horário...
+</div>
+
+<div class="countdown" id="countdown">
+Próximo culto...
+</div>
+
+<div class="card" onclick="toggleCard(this)">
     <div class="badge">NOVIDADE</div>
-    Terça - Minha família no altar (20:00 Horas - BR)
+    📖 Terça - Minha família no altar (20:00 Horas - BR)
+
     <img src="d1336394ddf2495e894e5c1ad077bb32.jpg">
-  </div>
+</div>
 
-  <div class="card">
-    Quarta - Oração e ensaio (20:00 Horas - BR)
-  </div>
+<div class="card">
+    🙏 Quarta - Oração e ensaio (20:00 Horas - BR)
+</div>
 
-  <div class="card">
-    Quinta - Culto de libertação
-  </div>
+<div class="card">
+    🔥 Quinta - Culto de libertação
+</div>
 
-  <div class="card">
-    Sábado - Culto
-  </div>
+<div class="card">
+    🎶 Sábado - Culto
+</div>
 
-  <div class="card">
-    Domingo - Culto
-  </div>
+<div class="card">
+    ✨ Domingo - Culto
+</div>
 
 </div>
 
-<!-- PLAYER -->
 <div class="player">
-  🎵 Louvor
-  <button onclick="toggleMusic()">Play</button>
+    🎵 Louvor
+    <button id="musicBtn" onclick="toggleMusic()">
+        Play
+    </button>
 </div>
 
 <audio id="audio" loop>
-  <source src="louvor.mp3" type="audio/mpeg">
+    <source src="louvor.mp3" type="audio/mpeg">
 </audio>
 
-<!-- BOTÃO WHATSAPP -->
 <a class="whatsapp"
-   href="https://wa.me/556496078723?text=Irei%20comparecer%20ao%20culto!"
-   target="_blank">
-   <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png">
+href="https://wa.me/556496078723?text=Irei%20comparecer%20ao%20culto!"
+target="_blank">
+
+<img src="https://cdn-icons-png.flaticon.com/512/733/733585.png">
+
 </a>
 
 <script>
 
-/* TOGGLE IMAGEM */
+/* MOSTRAR IMAGEM */
 function toggleCard(card){
-  const img = card.querySelector("img");
-  img.classList.toggle("show");
+    const img = card.querySelector("img");
+
+    if(img){
+        img.classList.toggle("show");
+    }
 }
 
 /* PLAYER */
 function toggleMusic(){
-  const audio=document.getElementById("audio");
-  if(audio.paused){
-    audio.play();
-  }else{
-    audio.pause();
-  }
+
+    const audio =
+    document.getElementById("audio");
+
+    const btn =
+    document.getElementById("musicBtn");
+
+    if(audio.paused){
+
+        audio.play();
+
+        btn.textContent = "Pause";
+
+    }else{
+
+        audio.pause();
+
+        btn.textContent = "Play";
+    }
 }
 
-/* FUNDO ESTRELAS */
-const canvas=document.getElementById("stars");
-const ctx=canvas.getContext("2d");
+/* RELÓGIO */
+function updateClock(){
 
-canvas.width=window.innerWidth;
-canvas.height=window.innerHeight;
+    const now = new Date();
 
-let stars=[];
+    document.getElementById("clock")
+    .textContent =
+    "Horário: " +
+    now.toLocaleString("pt-BR");
+}
+
+setInterval(updateClock,1000);
+
+updateClock();
+
+/* PRÓXIMO CULTO */
+document.getElementById("countdown")
+.textContent =
+"Próximo culto: Terça-feira às 20:00";
+
+/* ESTRELAS */
+const canvas =
+document.getElementById("stars");
+
+const ctx =
+canvas.getContext("2d");
+
+function resize(){
+
+    canvas.width =
+    window.innerWidth;
+
+    canvas.height =
+    window.innerHeight;
+}
+
+resize();
+
+window.addEventListener(
+"resize",
+resize
+);
+
+const stars = [];
+
 for(let i=0;i<150;i++){
-  stars.push({
-    x:Math.random()*canvas.width,
-    y:Math.random()*canvas.height,
-    radius:Math.random()*1.5,
-    speed:Math.random()*0.5
-  });
+
+    stars.push({
+
+        x:Math.random()*
+        canvas.width,
+
+        y:Math.random()*
+        canvas.height,
+
+        r:Math.random()*1.5,
+
+        s:Math.random()*0.5
+    });
 }
 
 function animate(){
-  ctx.clearRect(0,0,canvas.width,canvas.height);
-  ctx.fillStyle="white";
-  stars.forEach(s=>{
-    ctx.beginPath();
-    ctx.arc(s.x,s.y,s.radius,0,Math.PI*2);
-    ctx.fill();
-    s.y+=s.speed;
-    if(s.y>canvas.height){s.y=0;}
-  });
-  requestAnimationFrame(animate);
+
+    ctx.clearRect(
+    0,
+    0,
+    canvas.width,
+    canvas.height
+    );
+
+    ctx.fillStyle = "white";
+
+    stars.forEach(st=>{
+
+        ctx.beginPath();
+
+        ctx.arc(
+        st.x,
+        st.y,
+        st.r,
+        0,
+        Math.PI*2
+        );
+
+        ctx.fill();
+
+        st.y += st.s;
+
+        if(
+            st.y >
+            canvas.height
+        ){
+            st.y = 0;
+        }
+    });
+
+    requestAnimationFrame(
+    animate
+    );
 }
 
 animate();
