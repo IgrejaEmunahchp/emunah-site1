@@ -3,11 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>EMUNAH - Igreja</title>
+<title>Igreja EMUNAH</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
+
 *{
     margin:0;
     padding:0;
@@ -18,262 +19,349 @@ body{
     font-family:'Poppins',sans-serif;
     background:#000;
     color:#fff;
-    text-align:center;
     overflow-x:hidden;
 }
 
 canvas{
     position:fixed;
-    top:0;
-    left:0;
+    inset:0;
     z-index:-1;
 }
 
-#site{
-    max-width:520px;
-    margin:auto;
-    padding:70px 18px;
-}
-
-.logo{
-    width:170px;
-    border-radius:20px;
-    margin-bottom:20px;
-    box-shadow:0 10px 40px rgba(255,215,0,.4);
+header{
+    padding:25px;
+    text-align:center;
 }
 
 h1{
     color:gold;
     letter-spacing:3px;
-    margin-bottom:10px;
 }
 
-.clock,
-.countdown{
-    background:rgba(255,255,255,.05);
-    backdrop-filter:blur(15px);
-    padding:12px;
-    border-radius:15px;
+.container{
+    max-width:900px;
+    margin:auto;
+    padding:20px;
+}
+
+.card,
+.hero,
+.verse,
+.about,
+.gallery,
+.prayer{
+    background:rgba(255,255,255,.06);
+    backdrop-filter:blur(16px);
+    border:1px solid rgba(255,215,0,.2);
+    border-radius:20px;
+    padding:20px;
+    margin:18px 0;
+}
+
+.hero{
+    text-align:center;
+}
+
+.logo{
+    width:170px;
+    border-radius:20px;
     margin-bottom:15px;
 }
 
+.countdown{
+    font-size:1.2rem;
+    color:gold;
+    margin-top:10px;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:15px;
+}
+
+.gallery img{
+    width:100%;
+    border-radius:15px;
+}
+
 .card{
-    position:relative;
-    background:rgba(255,255,255,.05);
-    backdrop-filter:blur(18px);
-    border-radius:22px;
-    padding:22px;
-    margin:18px 0;
-    cursor:pointer;
-    transition:.4s;
-    animation:fadeUp .7s ease forwards;
+    transition:.3s;
 }
 
 .card:hover{
-    transform:translateY(-6px);
-}
-
-.card img{
-    width:100%;
-    border-radius:18px;
-    margin-top:15px;
-    display:none;
-    opacity:0;
-    transform:scale(.95);
-    transition:.5s;
-}
-
-.card img.show{
-    display:block;
-    opacity:1;
-    transform:scale(1);
-}
-
-.badge{
-    position:absolute;
-    top:-10px;
-    right:-10px;
-    background:gold;
-    color:#000;
-    font-weight:700;
-    border-radius:20px;
-    padding:6px 12px;
-}
-
-.player{
-    position:fixed;
-    bottom:20px;
-    left:20px;
-    background:rgba(0,0,0,.8);
-    padding:15px 20px;
-    border-radius:50px;
-    box-shadow:0 0 20px rgba(255,215,0,.5);
-}
-
-.player button{
-    background:gold;
-    border:none;
-    padding:8px 15px;
-    border-radius:20px;
-    font-weight:600;
-    cursor:pointer;
+    transform:translateY(-5px);
 }
 
 .whatsapp{
     position:fixed;
-    bottom:20px;
     right:20px;
+    bottom:20px;
+    background:#25D366;
     width:65px;
     height:65px;
-    background:#25D366;
     border-radius:50%;
     display:flex;
     align-items:center;
     justify-content:center;
     text-decoration:none;
+    font-size:28px;
     box-shadow:0 0 25px rgba(37,211,102,.8);
 }
 
-.whatsapp img{
-    width:35px;
+.top{
+    position:fixed;
+    left:20px;
+    bottom:20px;
+    background:gold;
+    color:#000;
+    padding:12px 15px;
+    border-radius:50%;
+    cursor:pointer;
+    font-weight:bold;
 }
 
-@keyframes fadeUp{
-    from{
-        opacity:0;
-        transform:translateY(25px);
-    }
-    to{
-        opacity:1;
-        transform:translateY(0);
-    }
+.player{
+    margin-top:15px;
 }
+
+button{
+    background:gold;
+    border:none;
+    padding:10px 16px;
+    border-radius:12px;
+    font-weight:700;
+    cursor:pointer;
+}
+
+input,
+textarea{
+    width:100%;
+    padding:12px;
+    border-radius:12px;
+    border:none;
+    margin-top:10px;
+    font-family:Poppins,sans-serif;
+}
+
+h2{
+    margin-bottom:10px;
+}
+
 </style>
 </head>
 <body>
 
-<canvas id="stars"></canvas>
+<canvas id="bg"></canvas>
 
-<div id="site">
+<header>
+    <h1>IGREJA EMUNAH</h1>
+</header>
 
-<img src="IMG-20260319-WA0002.jpg" class="logo">
+<div class="container">
 
-<h1>IGREJA EMUNAH</h1>
+    <div class="hero">
 
-<div class="clock" id="clock">
-Carregando horário...
+        <img src="IMG-20260319-WA0002.jpg" class="logo">
+
+        <h2>Bem-vindo à Igreja EMUNAH</h2>
+
+        <p>Fé, comunhão e adoração.</p>
+
+        <div id="countdown" class="countdown"></div>
+
+        <div class="player">
+
+            <audio id="audio" loop>
+                <source src="louvor.mp3" type="audio/mpeg">
+            </audio>
+
+            <button onclick="toggleMusic()" id="musicBtn">
+                ▶ Play Louvor
+            </button>
+
+        </div>
+
+    </div>
+
+    <div class="verse">
+
+        <h2>📖 Versículo do Dia</h2>
+
+        <p>
+            "Entrega o teu caminho ao Senhor;
+            confia nele, e ele tudo fará."
+        </p>
+
+        <p><strong>Salmos 37:5</strong></p>
+
+    </div>
+
+    <div class="grid">
+
+        <div class="card">
+            📖 Terça - Minha família no altar (20h)
+        </div>
+
+        <div class="card">
+            🙏 Quarta - Oração e ensaio (20h)
+        </div>
+
+        <div class="card">
+            🔥 Quinta - Culto de libertação
+        </div>
+
+        <div class="card">
+            🎶 Sábado - Culto
+        </div>
+
+        <div class="card">
+            ✨ Domingo - Culto
+        </div>
+
+    </div>
+
+    <div class="about">
+
+        <h2>Sobre a Igreja</h2>
+
+        <p>
+            Um lugar para adorar,
+            aprender e crescer na fé.
+        </p>
+
+    </div>
+
+    <div class="gallery">
+
+        <h2>Galeria</h2>
+
+        <img src="d1336394ddf2495e894e5c1ad077bb32.jpg" alt="Galeria da Igreja">
+
+    </div>
+
+    <div class="prayer">
+
+        <h2>Pedido de Oração</h2>
+
+        <input type="text" placeholder="Seu nome">
+
+        <textarea rows="4" placeholder="Digite seu pedido de oração"></textarea>
+
+    </div>
+
 </div>
 
-<div class="countdown" id="countdown">
-Próximo culto...
-</div>
-
-<div class="card" onclick="toggleCard(this)">
-    <div class="badge">NOVIDADE</div>
-    📖 Terça - Minha família no altar (20:00 Horas - BR)
-
-    <img src="d1336394ddf2495e894e5c1ad077bb32.jpg">
-</div>
-
-<div class="card">
-    🙏 Quarta - Oração e ensaio (20:00 Horas - BR)
-</div>
-
-<div class="card">
-    🔥 Quinta - Culto de libertação
-</div>
-
-<div class="card">
-    🎶 Sábado - Culto
-</div>
-
-<div class="card">
-    ✨ Domingo - Culto
-</div>
-
-</div>
-
-<div class="player">
-    🎵 Louvor
-    <button id="musicBtn" onclick="toggleMusic()">
-        Play
-    </button>
-</div>
-
-<audio id="audio" loop>
-    <source src="louvor.mp3" type="audio/mpeg">
-</audio>
-
-<a class="whatsapp"
+<a
+class="whatsapp"
 href="https://wa.me/556496078723?text=Irei%20comparecer%20ao%20culto!"
 target="_blank">
-
-<img src="https://cdn-icons-png.flaticon.com/512/733/733585.png">
-
+💬
 </a>
+
+<div
+class="top"
+onclick="window.scrollTo({top:0,behavior:'smooth'})">
+↑
+</div>
 
 <script>
 
-/* MOSTRAR IMAGEM */
-function toggleCard(card){
-    const img = card.querySelector("img");
-
-    if(img){
-        img.classList.toggle("show");
-    }
-}
-
 /* PLAYER */
+
 function toggleMusic(){
 
     const audio =
     document.getElementById("audio");
 
-    const btn =
+    const button =
     document.getElementById("musicBtn");
 
     if(audio.paused){
 
         audio.play();
 
-        btn.textContent = "Pause";
+        button.textContent =
+        "⏸ Pause";
 
     }else{
 
         audio.pause();
 
-        btn.textContent = "Play";
+        button.textContent =
+        "▶ Play Louvor";
     }
 }
 
-/* RELÓGIO */
-function updateClock(){
+/* CONTADOR */
 
-    const now = new Date();
+function updateCountdown(){
 
-    document.getElementById("clock")
-    .textContent =
-    "Horário: " +
-    now.toLocaleString("pt-BR");
+    const now =
+    new Date();
+
+    let target =
+    new Date();
+
+    target.setHours(
+        20,
+        0,
+        0,
+        0
+    );
+
+    while(
+        target <= now ||
+        target.getDay() !== 2
+    ){
+        target.setDate(
+            target.getDate()+1
+        );
+    }
+
+    const diff =
+    target - now;
+
+    const days =
+    Math.floor(diff/86400000);
+
+    const hours =
+    Math.floor(
+        diff%86400000/3600000
+    );
+
+    const minutes =
+    Math.floor(
+        diff%3600000/60000
+    );
+
+    const seconds =
+    Math.floor(
+        diff%60000/1000
+    );
+
+    document.getElementById(
+        "countdown"
+    ).innerText =
+    `Próximo culto em ${days}d ${hours}h ${minutes}m ${seconds}s`;
 }
 
-setInterval(updateClock,1000);
+setInterval(
+    updateCountdown,
+    1000
+);
 
-updateClock();
+updateCountdown();
 
-/* PRÓXIMO CULTO */
-document.getElementById("countdown")
-.textContent =
-"Próximo culto: Terça-feira às 20:00";
+/* FUNDO ESTRELAS */
 
-/* ESTRELAS */
 const canvas =
-document.getElementById("stars");
+document.getElementById("bg");
 
 const ctx =
 canvas.getContext("2d");
 
-function resize(){
+function resizeCanvas(){
 
     canvas.width =
     window.innerWidth;
@@ -282,72 +370,69 @@ function resize(){
     window.innerHeight;
 }
 
-resize();
+resizeCanvas();
 
 window.addEventListener(
-"resize",
-resize
+    "resize",
+    resizeCanvas
 );
 
-const stars = [];
+const stars =
+[...Array(180)].map(() => ({
 
-for(let i=0;i<150;i++){
+    x:Math.random()*canvas.width,
 
-    stars.push({
+    y:Math.random()*canvas.height,
 
-        x:Math.random()*
-        canvas.width,
+    size:Math.random()*2+1,
 
-        y:Math.random()*
-        canvas.height,
+    speed:Math.random()*0.6
 
-        r:Math.random()*1.5,
+}));
 
-        s:Math.random()*0.5
-    });
-}
-
-function animate(){
+function animateStars(){
 
     ctx.clearRect(
-    0,
-    0,
-    canvas.width,
-    canvas.height
+        0,
+        0,
+        canvas.width,
+        canvas.height
     );
 
-    ctx.fillStyle = "white";
+    ctx.fillStyle =
+    "white";
 
-    stars.forEach(st=>{
+    stars.forEach(star=>{
 
         ctx.beginPath();
 
         ctx.arc(
-        st.x,
-        st.y,
-        st.r,
-        0,
-        Math.PI*2
+            star.x,
+            star.y,
+            star.size,
+            0,
+            Math.PI*2
         );
 
         ctx.fill();
 
-        st.y += st.s;
+        star.y += star.speed;
 
         if(
-            st.y >
+            star.y >
             canvas.height
         ){
-            st.y = 0;
+            star.y = 0;
         }
+
     });
 
     requestAnimationFrame(
-    animate
+        animateStars
     );
 }
 
-animate();
+animateStars();
 
 </script>
 
