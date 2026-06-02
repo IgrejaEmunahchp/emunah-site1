@@ -42,9 +42,9 @@ body{
 
 .card img {
   width: 100%;
-  aspect-ratio: 3/4;   /* fixa a proporção 3:4 do elemento */
-  object-fit: cover;    /* preenche o espaço definido pela proporção */
-  object-position: center;
+  height: auto;              /* altura automática para manter a proporção */
+  object-fit: contain;       /* encaixa toda a imagem sem cortar */
+  object-position: center;   /* centraliza imagem dentro do card */
 }
 
 button{
