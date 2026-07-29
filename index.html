@@ -10,8 +10,10 @@
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 
+
 <style>
-  /* RESET */
+
+/* RESET */
 
 *{
 margin:0;
@@ -27,23 +29,31 @@ body{
 background:#050505;
 color:white;
 
+overflow:hidden;
+
 }
 
 
 
-/* MODAL DE ENTRADA */
+/* ==========================
+MODAL DE ENTRADA
+========================== */
+
 
 .modal{
 
 position:fixed;
+
 top:0;
 left:0;
+
 width:100%;
 height:100vh;
 
-background:rgba(0,0,0,0.85);
+background:rgba(0,0,0,.88);
 
 display:flex;
+
 align-items:center;
 justify-content:center;
 
@@ -56,7 +66,8 @@ z-index:9999;
 .modal-box{
 
 width:90%;
-max-width:500px;
+
+max-width:520px;
 
 background:#111;
 
@@ -67,19 +78,20 @@ padding:25px;
 text-align:center;
 
 box-shadow:
-0 0 40px rgba(255,255,255,0.15);
+0 0 50px rgba(212,175,55,.25);
 
-animation:entrada 1s ease;
+animation:abrir .8s ease;
 
 }
 
 
 
-@keyframes entrada{
+@keyframes abrir{
 
 from{
 
 transform:scale(.7);
+
 opacity:0;
 
 }
@@ -87,6 +99,7 @@ opacity:0;
 to{
 
 transform:scale(1);
+
 opacity:1;
 
 }
@@ -117,17 +130,19 @@ color:transparent;
 
 width:100%;
 
-height:260px;
+height:280px;
 
 object-fit:cover;
 
-border-radius:15px;
+border-radius:18px;
 
-background:black;
+background:#000;
 
 }
 
 
+
+/* BOTÃO DO VÍDEO */
 
 #botaoCultos{
 
@@ -137,7 +152,7 @@ margin-top:20px;
 
 width:100%;
 
-padding:15px;
+padding:16px;
 
 border:none;
 
@@ -149,9 +164,11 @@ color:#000;
 
 font-size:16px;
 
-font-weight:700;
+font-weight:800;
 
 cursor:pointer;
+
+transition:.3s;
 
 }
 
@@ -165,9 +182,9 @@ transform:scale(1.05);
 
 
 
-
-
-/* HEADER */
+/* ==========================
+HEADER
+========================== */
 
 
 header{
@@ -200,7 +217,7 @@ z-index:1000;
 
 .logo{
 
-font-size:24px;
+font-size:25px;
 
 font-weight:800;
 
@@ -225,8 +242,9 @@ font-size:14px;
 
 
 
-
-/* HERO */
+/* ==========================
+HERO
+========================== */
 
 
 .hero{
@@ -236,15 +254,16 @@ height:100vh;
 background:
 
 linear-gradient(
-rgba(0,0,0,.6),
-rgba(0,0,0,.8)
+rgba(0,0,0,.55),
+rgba(0,0,0,.85)
 ),
 
 url("imagem-fundo.jpg");
 
-background-position:center;
 
 background-size:cover;
+
+background-position:center;
 
 display:flex;
 
@@ -280,9 +299,9 @@ font-weight:800;
 
 font-size:20px;
 
-margin:20px 0;
-
 color:#ddd;
+
+margin:20px 0;
 
 }
 
@@ -296,7 +315,7 @@ padding:15px 35px;
 
 background:#d4af37;
 
-color:black;
+color:#000;
 
 border-radius:50px;
 
@@ -307,11 +326,7 @@ font-weight:bold;
 }
 
 
-
-
-
-/* TITULOS */
-
+/* TÍTULOS */
 
 .titulo{
 
@@ -322,774 +337,3 @@ font-size:35px;
 margin:70px 0 40px;
 
 }
-
-
-
-
-
-/* CULTOS */
-
-
-.cultos-container{
-
-width:90%;
-
-margin:auto;
-
-display:grid;
-
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-
-gap:25px;
-
-}
-
-
-
-.card{
-
-background:
-
-linear-gradient(
-145deg,
-#161616,
-#080808
-);
-
-
-border-radius:25px;
-
-padding:35px 20px;
-
-text-align:center;
-
-border:1px solid rgba(255,255,255,.1);
-
-transition:.4s;
-
-}
-
-
-
-.card:hover{
-
-transform:translateY(-10px);
-
-box-shadow:
-
-0 20px 40px rgba(212,175,55,.25);
-
-}
-
-
-
-.card h3{
-
-color:#d4af37;
-
-font-size:22px;
-
-margin-bottom:15px;
-
-}
-
-
-
-.card p{
-
-color:#ccc;
-
-line-height:1.8;
-
-}
-
-
-
-
-/* BOTÃO WHATSAPP */
-
-
-.whatsapp{
-
-position:fixed;
-
-right:25px;
-
-bottom:25px;
-
-width:65px;
-
-height:65px;
-
-background:#25D366;
-
-border-radius:50%;
-
-display:flex;
-
-align-items:center;
-
-justify-content:center;
-
-font-size:30px;
-
-text-decoration:none;
-
-color:white;
-
-z-index:999;
-
-box-shadow:0 0 25px #25D366;
-
-}
-
-
-
-
-
-/* BOTÃO MÚSICA */
-
-
-.musica{
-
-position:fixed;
-
-left:25px;
-
-bottom:25px;
-
-width:65px;
-
-height:65px;
-
-border-radius:50%;
-
-background:#d4af37;
-
-color:#000;
-
-display:flex;
-
-align-items:center;
-
-justify-content:center;
-
-font-size:25px;
-
-cursor:pointer;
-
-z-index:999;
-
-}
-
-
-
-
-
-/* ÁREA ORAÇÃO */
-
-
-#oracao{
-
-margin-top:100px;
-
-padding:60px 10%;
-
-background:#0c0c0c;
-
-}
-
-
-
-.formulario{
-
-max-width:600px;
-
-margin:auto;
-
-}
-
-
-
-input,
-textarea{
-
-
-width:100%;
-
-padding:15px;
-
-margin:10px 0;
-
-border-radius:15px;
-
-border:none;
-
-background:#1b1b1b;
-
-color:white;
-
-font-size:16px;
-
-}
-
-
-
-textarea{
-
-height:150px;
-
-resize:none;
-
-}
-
-
-
-.enviar{
-
-width:100%;
-
-padding:15px;
-
-border:none;
-
-border-radius:50px;
-
-background:#d4af37;
-
-font-weight:bold;
-
-cursor:pointer;
-
-}
-
-
-
-
-/* LOCALIZAÇÃO */
-
-
-#local{
-
-padding:60px 10%;
-
-text-align:center;
-
-}
-
-
-
-
-
-/* CELULAR */
-
-
-@media(max-width:700px){
-
-
-header{
-
-padding:20px;
-
-}
-
-
-
-nav{
-
-display:none;
-
-}
-
-
-
-.hero h2{
-
-font-size:32px;
-
-}
-
-
-
-.hero p{
-
-font-size:17px;
-
-}
-
-
-
-.titulo{
-
-font-size:28px;
-
-}
-
-
-
-.modal-box h1{
-
-font-size:22px;
-
-}
-
-
-  }
-
-</style>
-
-</head>
-
-<script>
-
-
-// VÍDEO DE ENTRADA
-
-const video = document.getElementById("videoEntrada");
-const botaoCultos = document.getElementById("botaoCultos");
-const entrada = document.getElementById("entrada");
-
-
-botaoCultos.style.display = "none";
-
-
-video.addEventListener("ended", function(){
-
-    botaoCultos.style.display = "block";
-
-});
-
-
-
-function abrirSite(){
-
-    entrada.style.display = "none";
-
-    document.body.style.overflow = "auto";
-
-}
-
-
-
-// Bloqueia rolagem enquanto a notificação aparece
-
-document.body.style.overflow="hidden";
-
-
-
-
-
-// WHATSAPP DO CULTO
-
-
-function irCulto(){
-
-
-let mensagem = 
-"IREI COMPARECER AO CULTO!";
-
-
-let numero = "5511999999999";
-
-
-let link =
-"https://wa.me/"+numero+"?text="+encodeURIComponent(mensagem);
-
-
-window.open(link,"_blank");
-
-
-}
-
-
-
-
-
-// PEDIDO DE ORAÇÃO
-
-
-function enviarOracao(){
-
-
-let nome =
-document.getElementById("nome").value;
-
-
-let pedido =
-document.getElementById("pedido").value;
-
-
-
-let mensagem =
-
-"PEDIDO DE ORAÇÃO\n\n"+
-"NOME: "+nome+
-"\n\nPEDIDO:\n"+
-pedido;
-
-
-
-let numero =
-"5511999999999";
-
-
-
-let link =
-
-"https://wa.me/"+numero+
-"?text="+
-encodeURIComponent(mensagem);
-
-
-
-window.open(link,"_blank");
-
-
-}
-
-
-
-
-
-
-// MÚSICA
-
-
-let tocando=false;
-
-
-let audio =
-new Audio("Louvor.mp3");
-
-
-
-function tocarMusica(){
-
-
-if(tocando){
-
-
-audio.pause();
-
-tocando=false;
-
-
-}else{
-
-
-audio.play();
-
-tocando=true;
-
-
-}
-
-
-}
-
-
-
-</script>
-  <!-- BOTÃO WHATSAPP -->
-
-<a 
-class="whatsapp"
-onclick="irCulto()">
-
-💬
-
-</a>
-
-
-
-
-<!-- BOTÃO MÚSICA -->
-
-<div 
-class="musica"
-onclick="tocarMusica()">
-
-🎵
-
-</div>
-
-
-
-
-<!-- PEDIDO DE ORAÇÃO -->
-
-<section id="oracao">
-
-
-<h2 class="titulo">
-
-PEDIDO DE ORAÇÃO
-
-</h2>
-
-
-<div class="formulario">
-
-
-<input 
-id="nome"
-type="text"
-placeholder="Seu nome">
-
-
-<textarea 
-id="pedido"
-placeholder="Digite seu pedido de oração">
-
-</textarea>
-
-
-<button 
-class="enviar"
-onclick="enviarOracao()">
-
-ENVIAR PEDIDO DE ORAÇÃO
-
-</button>
-
-
-</div>
-
-
-</section>
-
-
-
-
-<!-- LOCALIZAÇÃO -->
-
-<section id="local">
-
-
-<h2 class="titulo">
-
-NOSSA LOCALIZAÇÃO
-
-</h2>
-
-
-<p>
-
-📍RUA ALBATROZ N°301, Esplanada 1 CHAPADÃO DO SUL/MS
-
-</p>
-
-
-</section>
-
-
-
-</body>
-</html>
-<button id="botaoCultos" onclick="abrirSite()">
-VER CRONOGRAMA DOS CULTOS
-</button>
-<body>
-
-
-<!-- NOTIFICAÇÃO DE ENTRADA -->
-
-<div class="modal" id="entrada">
-
-<div class="modal-box">
-
-
-<h1>
-VOCÊ É O NOSSO CONVIDADO!!
-</h1>
-
-
-<video 
-id="videoEntrada"
-controls
-playsinline>
-
-<source src="./VID-20260729-WA0071(1).mp4" type="video/mp4">
-
-</video>
-
-
-<button 
-id="botaoCultos"
-onclick="abrirSite()">
-
-VER CRONOGRAMA DOS CULTOS
-
-</button>
-
-</div>
-
-</div>
-
-
-
-<!-- CABEÇALHO -->
-
-<header>
-
-<div class="logo">
-
-IGREJA EMUNAH
-
-</div>
-
-
-<nav>
-
-<a href="#cultos">Cultos</a>
-
-<a href="#oracao">Oração</a>
-
-<a href="#local">Localização</a>
-
-</nav>
-
-
-</header>
-
-
-
-
-<!-- HERO -->
-
-<section class="hero">
-
-
-<div class="hero-text">
-
-
-<h2>
-Um lugar para encontrar Deus
-</h2>
-
-
-<p>
-Venha fazer parte da nossa família de fé.
-</p>
-
-
-<a href="#cultos">
-
-Conheça nossos cultos
-
-</a>
-
-
-</div>
-
-
-</section>
-
-
-
-
-<!-- CRONOGRAMA -->
-
-<section id="cultos">
-
-
-<h2 class="titulo">
-
-CRONOGRAMA DOS CULTOS
-
-</h2>
-
-
-
-<div class="cultos-container">
-
-
-
-<div class="card">
-
-<h3>TERÇA-FEIRA</h3>
-
-<p>
-Culto de oração<br>
-Horário: 19:30
-</p>
-
-</div>
-
-
-
-
-<div class="card">
-
-<h3>QUARTA-FEIRA</h3>
-
-<p>
-Culto da Palavra<br>
-Horário: 19:30
-</p>
-
-</div>
-
-
-
-
-<div class="card">
-
-<h3>QUINTA-FEIRA</h3>
-
-<p>
-Culto de Ensino<br>
-Horário: 19:30
-</p>
-
-</div>
-
-
-
-
-<div class="card">
-
-<h3>SEXTA-FEIRA</h3>
-
-<p>
-Culto de Celebração<br>
-Horário: 19:30
-</p>
-
-</div>
-
-
-
-
-<div class="card">
-
-<h3>SÁBADO</h3>
-
-<p>
-Culto Especial<br>
-Horário: 19:30
-</p>
-
-</div>
-
-
-
-
-<div class="card">
-
-<h3>DOMINGO</h3>
-
-<p>
-Culto da Família<br>
-Horário: 18:00
-</p>
-
-</div>
-
-
-
-</div>
-
-
-</section>
-  
