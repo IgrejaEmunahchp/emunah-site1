@@ -647,28 +647,27 @@ font-size:22px;
 
 const video = document.getElementById("videoEntrada");
 const botaoCultos = document.getElementById("botaoCultos");
+const entrada = document.getElementById("entrada");
 
-video.onended = function(){
+
+botaoCultos.style.display = "none";
+
+
+video.addEventListener("ended", function(){
 
     botaoCultos.style.display = "block";
-
-};
 
 });
 
 
 
-
-// Abrir site após clicar
-
 function abrirSite(){
 
-document.getElementById("entrada").style.display="none";
+    entrada.style.display = "none";
 
-document.body.style.overflow="auto";
+    document.body.style.overflow = "auto";
 
 }
-
 
 
 
