@@ -520,5 +520,18 @@ padding:12px 18px;
 }
 
 
+.reveal{
+
+opacity:0;
+
+transform:
+translateY(50px);
+
+transition:
+0.8s ease;
+
+}
+
+
 
   }
