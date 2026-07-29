@@ -642,7 +642,159 @@ font-size:22px;
 
 </head>
 
+<script>
 
+
+// VÍDEO DE ENTRADA
+
+const video = document.getElementById("videoEntrada");
+
+const botaoCultos = document.getElementById("botaoCultos");
+
+
+// Quando o vídeo terminar libera o botão
+
+video.addEventListener("ended", function(){
+
+botaoCultos.style.display="block";
+
+});
+
+
+
+
+// Abrir site após clicar
+
+function abrirSite(){
+
+document.getElementById("entrada").style.display="none";
+
+document.body.style.overflow="auto";
+
+}
+
+
+
+
+// Bloqueia rolagem enquanto a notificação aparece
+
+document.body.style.overflow="hidden";
+
+
+
+
+
+// WHATSAPP DO CULTO
+
+
+function irCulto(){
+
+
+let mensagem = 
+"IREI COMPARECER AO CULTO!";
+
+
+let numero = "5511999999999";
+
+
+let link =
+"https://wa.me/"+numero+"?text="+encodeURIComponent(mensagem);
+
+
+window.open(link,"_blank");
+
+
+}
+
+
+
+
+
+// PEDIDO DE ORAÇÃO
+
+
+function enviarOracao(){
+
+
+let nome =
+document.getElementById("nome").value;
+
+
+let pedido =
+document.getElementById("pedido").value;
+
+
+
+let mensagem =
+
+"PEDIDO DE ORAÇÃO\n\n"+
+"NOME: "+nome+
+"\n\nPEDIDO:\n"+
+pedido;
+
+
+
+let numero =
+"5511999999999";
+
+
+
+let link =
+
+"https://wa.me/"+numero+
+"?text="+
+encodeURIComponent(mensagem);
+
+
+
+window.open(link,"_blank");
+
+
+}
+
+
+
+
+
+
+// MÚSICA
+
+
+let tocando=false;
+
+
+let audio =
+new Audio("musica.mp3");
+
+
+
+function tocarMusica(){
+
+
+if(tocando){
+
+
+audio.pause();
+
+tocando=false;
+
+
+}else{
+
+
+audio.play();
+
+tocando=true;
+
+
+}
+
+
+}
+
+
+
+</script>
 <body>
 
 
