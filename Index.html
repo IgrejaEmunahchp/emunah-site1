@@ -8,315 +8,76 @@
 
 <title>Igreja EMUNAH</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 
-<style>
-
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:'Poppins',sans-serif;
-scroll-behavior:smooth;
-}
-
-body{
-background:#050505;
-color:#fff;
-overflow-x:hidden;
-}
-
-.modal{
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:rgba(0,0,0,.95);
-display:flex;
-justify-content:center;
-align-items:center;
-z-index:999999;
-}
-
-.modal-content{
-width:95%;
-max-width:700px;
-background:#111;
-padding:25px;
-border-radius:20px;
-text-align:center;
-box-shadow:0 0 40px rgba(255,215,0,.35);
-}
-
-.modal-content h1{
-font-size:42px;
-color:gold;
-margin-bottom:20px;
-}
-
-.modal-content video{
-width:100%;
-border-radius:15px;
-}
-
-#btnCronograma{
-display:none;
-width:100%;
-margin-top:20px;
-padding:18px;
-font-size:18px;
-background:gold;
-color:#000;
-font-weight:bold;
-border:none;
-border-radius:12px;
-cursor:pointer;
-transition:.3s;
-}
-
-#btnCronograma:hover{
-transform:scale(1.03);
-}
-
-header{
-height:100vh;
-background:
-linear-gradient(rgba(0,0,0,.65),rgba(0,0,0,.85)),
-url("IMG-20260319-WA0002.jpg") center/cover;
-display:flex;
-justify-content:center;
-align-items:center;
-flex-direction:column;
-text-align:center;
-padding:20px;
-}
-
-header img{
-width:170px;
-height:170px;
-border-radius:50%;
-border:5px solid gold;
-box-shadow:0 0 30px gold;
-margin-bottom:20px;
-}
-
-header h1{
-font-size:55px;
-color:gold;
-}
-
-header p{
-margin-top:15px;
-font-size:20px;
-color:#ddd;
-max-width:700px;
-}
-
-nav{
-position:sticky;
-top:0;
-background:#111;
-display:flex;
-justify-content:center;
-gap:30px;
-padding:18px;
-z-index:999;
-box-shadow:0 3px 15px rgba(0,0,0,.5);
-}
-
-nav a{
-color:#fff;
-text-decoration:none;
-font-weight:bold;
-transition:.3s;
-}
-
-nav a:hover{
-color:gold;
-}
-
-.container{
-max-width:1200px;
-margin:auto;
-padding:30px;
-}
-
-.section{
-margin-top:70px;
-}
-
-.section h2{
-color:gold;
-font-size:35px;
-margin-bottom:25px;
-}
-
-.grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-gap:25px;
-}
-
-.card{
-background:#111;
-border-radius:20px;
-overflow:hidden;
-transition:.35s;
-box-shadow:0 0 15px rgba(255,215,0,.12);
-}
-
-.card:hover{
-transform:translateY(-8px);
-box-shadow:0 0 30px rgba(255,215,0,.4);
-}
-
-.card img{
-width:100%;
-height:260px;
-object-fit:cover;
-}
-
-.card h3{
-padding:15px;
-color:gold;
-}
-
-.card p{
-padding:0 15px 20px;
-color:#ddd;
-}
-
-.about,.prayer{
-background:#111;
-padding:30px;
-border-radius:20px;
-line-height:30px;
-}
-
-input,textarea{
-width:100%;
-padding:15px;
-margin-top:15px;
-background:#1b1b1b;
-color:white;
-border:1px solid #333;
-border-radius:12px;
-}
-
-button{
-padding:15px 30px;
-background:gold;
-color:#000;
-font-weight:bold;
-border:none;
-border-radius:12px;
-cursor:pointer;
-}
-
-footer{
-margin-top:70px;
-padding:40px;
-text-align:center;
-background:#111;
-color:#999;
-}
-
-</style>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 
 </head>
 
+
 <body>
 
-<div id="conviteModal" class="modal">
 
-<div class="modal-content">
+<!-- TELA DE ABERTURA -->
 
-<h1>VOCÊ É O NOSSO CONVIDADO!!</h1>
+<section class="intro">
 
-<video id="videoConvite" autoplay controls playsinline>
-
-<source src="VID-20260729-WA0071(1).mp4" type="video/mp4">
-
+<video autoplay muted loop playsinline>
+<source src="video/abertura.mp4" type="video/mp4">
 </video>
 
-<button id="btnCronograma" onclick="abrirCronograma()">
 
-Ver cronograma dos cultos
+<div class="intro-overlay"></div>
 
-</button>
 
-</div>
+<div class="intro-content">
 
-</div>
-<header>
+<img src="imagens/logo.png" class="logo">
 
-<img src="logo.png" alt="Logo Igreja EMUNAH">
 
-<h1>IGREJA EMUNAH</h1>
+<h1>
+VOCÊ É O NOSSO<br>
+<span>CONVIDADO!!</span>
+</h1>
+
 
 <p>
-Um lugar preparado por Deus para receber você e sua família.
+Venha viver uma experiência com Deus
 </p>
 
-</header>
 
-<nav>
+<a href="#cultos" class="btn">
+Ver cronograma dos cultos
+</a>
 
-<a href="#versiculo">Versículo</a>
-<a href="#cultos">Cultos</a>
-<a href="#sobre">Sobre</a>
-<a href="#oracao">Oração</a>
-<a href="#localizacao">Localização</a>
-
-</nav>
-
-<div class="container">
-
-<section class="section" id="versiculo">
-
-<h2>📖 Versículo do Dia</h2>
-
-<div class="about">
-
-<p style="font-size:20px;">
-
-"Entrega o teu caminho ao Senhor; confia nele, e ele tudo fará."
-
-</p>
-
-<br>
-
-<strong>Salmos 37:5</strong>
 
 </div>
+
 
 </section>
 
-<section class="section" id="cultos">
 
-<h2>Programação da Semana</h2>
 
-<div class="grid">
+<!-- HERO -->
 
-<div class="card">
 
-<img src="IMG-20260624-WA0005.jpg">
+<section class="hero">
 
-<h3>📖 Terça-feira</h3>
+
+<div class="hero-content">
+
+
+<h2>
+Igreja EMUNAH
+</h2>
+
 
 <p>
-
-Minha Família no Altar
-
-<br><br>
-
-<strong>20:00</strong>
-
+Um lugar de fé, comunhão e transformação.
 </p>
+
 
 </div>
 
-<div class="card">
 
-<img src="Polish
+</section>
