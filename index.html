@@ -648,15 +648,13 @@ font-size:22px;
 // VÍDEO DE ENTRADA
 
 const video = document.getElementById("videoEntrada");
-
 const botaoCultos = document.getElementById("botaoCultos");
 
+video.onended = function(){
 
-// Quando o vídeo terminar libera o botão
+    botaoCultos.style.display = "block";
 
-video.addEventListener("ended", function(){
-
-botaoCultos.style.display="block";
+};
 
 });
 
