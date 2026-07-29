@@ -337,3 +337,344 @@ font-size:35px;
 margin:70px 0 40px;
 
 }
+  /* ==========================
+CRONOGRAMA DOS CULTOS
+========================== */
+
+
+#cultos{
+
+padding:40px 8%;
+
+}
+
+
+
+.cultos-container{
+
+display:grid;
+
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+
+gap:25px;
+
+}
+
+
+
+.card{
+
+background:
+
+linear-gradient(
+145deg,
+#161616,
+#080808
+);
+
+border-radius:25px;
+
+padding:35px 20px;
+
+text-align:center;
+
+border:1px solid rgba(255,255,255,.1);
+
+transition:.4s;
+
+}
+
+
+
+.card:hover{
+
+transform:translateY(-10px);
+
+box-shadow:
+
+0 20px 40px rgba(212,175,55,.25);
+
+}
+
+
+
+.card h3{
+
+color:#d4af37;
+
+font-size:22px;
+
+margin-bottom:15px;
+
+}
+
+
+
+.card p{
+
+color:#ddd;
+
+line-height:1.8;
+
+}
+
+
+
+
+/* ==========================
+PEDIDO DE ORAÇÃO
+========================== */
+
+
+#oracao{
+
+padding:70px 8%;
+
+background:#0c0c0c;
+
+}
+
+
+
+.formulario{
+
+max-width:600px;
+
+margin:auto;
+
+}
+
+
+
+input,
+textarea{
+
+
+width:100%;
+
+padding:16px;
+
+margin:10px 0;
+
+border-radius:15px;
+
+border:none;
+
+outline:none;
+
+background:#1a1a1a;
+
+color:white;
+
+font-size:16px;
+
+}
+
+
+
+textarea{
+
+height:150px;
+
+resize:none;
+
+}
+
+
+
+.enviar{
+
+width:100%;
+
+padding:16px;
+
+border:none;
+
+border-radius:50px;
+
+background:#d4af37;
+
+color:#000;
+
+font-weight:800;
+
+cursor:pointer;
+
+}
+
+
+
+
+/* ==========================
+LOCALIZAÇÃO
+========================== */
+
+
+#local{
+
+padding:70px 8%;
+
+text-align:center;
+
+background:#050505;
+
+}
+
+
+
+
+
+/* ==========================
+BOTÃO WHATSAPP
+========================== */
+
+
+.whatsapp{
+
+position:fixed;
+
+right:25px;
+
+bottom:25px;
+
+width:65px;
+
+height:65px;
+
+background:#25D366;
+
+border-radius:50%;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+font-size:30px;
+
+color:white;
+
+text-decoration:none;
+
+z-index:999;
+
+box-shadow:0 0 25px #25D366;
+
+cursor:pointer;
+
+}
+
+
+
+
+/* ==========================
+BOTÃO MÚSICA
+========================== */
+
+
+.musica{
+
+position:fixed;
+
+left:25px;
+
+bottom:25px;
+
+width:65px;
+
+height:65px;
+
+background:#d4af37;
+
+color:#000;
+
+border-radius:50%;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+font-size:25px;
+
+z-index:999;
+
+cursor:pointer;
+
+}
+
+
+
+
+/* ==========================
+RODAPÉ
+========================== */
+
+
+footer{
+
+padding:30px;
+
+text-align:center;
+
+background:#111;
+
+color:#aaa;
+
+}
+
+
+
+/* RESPONSIVO */
+
+@media(max-width:700px){
+
+
+.hero h2{
+
+font-size:32px;
+
+}
+
+
+
+.hero p{
+
+font-size:17px;
+
+}
+
+
+
+.modal-box h1{
+
+font-size:22px;
+
+}
+
+
+
+nav{
+
+display:none;
+
+}
+
+
+
+.titulo{
+
+font-size:28px;
+
+}
+
+
+}
+  </style>
+
+</head>
+
+
+<body>
