@@ -18,13 +18,26 @@ box-sizing:border-box;
 scroll-behavior:smooth;
 }
 
-body{
+<body>
+<!-- NOTIFICAÇÃO DE BOAS-VINDAS -->
+<div id="conviteModal" class="modal">
 
-font-family:'Poppins',sans-serif;
-background:#050505;
-color:white;
+    <div class="modal-content">
 
-}
+        <h1>VOCÊ É O NOSSO CONVIDADO!!</h1>
+
+        <video id="videoConvite" autoplay playsinline controls>
+            <source src="convite.mp4" type="video/mp4">
+            Seu navegador não suporta vídeo.
+        </video>
+
+        <button id="btnCronograma" onclick="abrirCronograma()">
+            Ver cronograma dos cultos
+        </button>
+
+    </div>
+
+</div>
 
 header{
 
