@@ -678,3 +678,541 @@ font-size:28px;
 
 
 <body>
+  <!-- ==========================
+MODAL DE ENTRADA
+========================== -->
+
+
+<div class="modal" id="entrada">
+
+<div class="modal-box">
+
+
+<h1>
+VOCÊ É O NOSSO CONVIDADO!!
+</h1>
+
+
+<video 
+id="videoEntrada"
+controls
+playsinline>
+
+<source src="video.mp4" type="video/mp4">
+
+Seu navegador não suporta vídeo.
+
+</video>
+
+
+
+<button 
+id="botaoCultos"
+onclick="abrirSite()">
+
+VER CRONOGRAMA DOS CULTOS
+
+</button>
+
+
+</div>
+
+</div>
+
+
+
+
+<!-- ==========================
+CABEÇALHO
+========================== -->
+
+
+<header>
+
+
+<div class="logo">
+
+IGREJA EMUNAH
+
+</div>
+
+
+<nav>
+
+<a href="#cultos">
+Cultos
+</a>
+
+<a href="#oracao">
+Oração
+</a>
+
+<a href="#local">
+Localização
+</a>
+
+
+</nav>
+
+
+</header>
+
+
+
+
+
+<!-- ==========================
+HERO
+========================== -->
+
+
+<section class="hero">
+
+
+<div class="hero-text">
+
+
+<h2>
+Um lugar para encontrar Deus
+</h2>
+
+
+<p>
+Venha fazer parte da nossa família de fé.
+</p>
+
+
+<a href="#cultos">
+
+VER CULTOS
+
+</a>
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+<!-- ==========================
+CULTOS
+========================== -->
+
+
+<section id="cultos">
+
+
+<h2 class="titulo">
+
+CRONOGRAMA DOS CULTOS
+
+</h2>
+
+
+
+<div class="cultos-container">
+
+
+<div class="card">
+
+<h3>TERÇA-FEIRA</h3>
+
+<p>
+Culto de Oração<br>
+19:30
+</p>
+
+</div>
+
+
+
+
+<div class="card">
+
+<h3>QUARTA-FEIRA</h3>
+
+<p>
+Culto da Palavra<br>
+19:30
+</p>
+
+</div>
+
+
+
+
+
+<div class="card">
+
+<h3>QUINTA-FEIRA</h3>
+
+<p>
+Culto de Ensino<br>
+19:30
+</p>
+
+</div>
+
+
+
+
+
+<div class="card">
+
+<h3>SEXTA-FEIRA</h3>
+
+<p>
+Culto de Celebração<br>
+19:30
+</p>
+
+</div>
+
+
+
+
+
+<div class="card">
+
+<h3>SÁBADO</h3>
+
+<p>
+Culto Especial<br>
+19:30
+</p>
+
+</div>
+
+
+
+
+
+<div class="card">
+
+<h3>DOMINGO</h3>
+
+<p>
+Culto da Família<br>
+18:00
+</p>
+
+</div>
+
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+<!-- ==========================
+PEDIDO DE ORAÇÃO
+========================== -->
+
+
+<section id="oracao">
+
+
+<h2 class="titulo">
+
+PEDIDO DE ORAÇÃO
+
+</h2>
+
+
+
+<div class="formulario">
+
+
+<input 
+id="nome"
+placeholder="Seu nome">
+
+
+
+<textarea 
+id="pedido"
+placeholder="Digite seu pedido de oração">
+
+</textarea>
+
+
+
+
+<button 
+class="enviar"
+onclick="enviarOracao()">
+
+ENVIAR PEDIDO DE ORAÇÃO
+
+</button>
+
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+<!-- ==========================
+LOCALIZAÇÃO
+========================== -->
+
+
+<section id="local">
+
+
+<h2 class="titulo">
+
+NOSSA LOCALIZAÇÃO
+
+</h2>
+
+
+<p>
+
+📍 RUA ALBATROZ N°301  
+<br>
+Esplanada 1 - Chapadão do Sul/MS
+
+</p>
+
+
+</section>
+
+
+
+
+
+
+<!-- BOTÃO WHATSAPP -->
+
+
+<a 
+class="whatsapp"
+onclick="irCulto()">
+
+💬
+
+</a>
+
+
+
+
+
+<!-- BOTÃO MÚSICA -->
+
+
+<div 
+class="musica"
+onclick="tocarMusica()">
+
+🎵
+
+</div>
+
+
+
+
+
+
+<footer>
+
+Igreja EMUNAH © 2026
+
+</footer>
+
+
+
+
+
+
+<script>
+
+
+// ==========================
+// VÍDEO DE ENTRADA
+// ==========================
+
+
+const video = document.getElementById("videoEntrada");
+
+const botao = document.getElementById("botaoCultos");
+
+const modal = document.getElementById("entrada");
+
+
+
+video.addEventListener("ended", function(){
+
+
+botao.style.display="block";
+
+
+});
+
+
+
+
+
+function abrirSite(){
+
+
+modal.style.display="none";
+
+
+document.body.style.overflow="auto";
+
+
+}
+
+
+
+
+
+
+// ==========================
+// WHATSAPP CULTO
+// ==========================
+
+
+function irCulto(){
+
+
+let mensagem =
+"IREI COMPARECER AO CULTO!";
+
+
+let numero =
+"5511999999999";
+
+
+window.open(
+
+"https://wa.me/"+numero+
+"?text="+
+encodeURIComponent(mensagem),
+
+"_blank"
+
+);
+
+
+}
+
+
+
+
+
+
+// ==========================
+// PEDIDO DE ORAÇÃO
+// ==========================
+
+
+function enviarOracao(){
+
+
+let nome =
+document.getElementById("nome").value;
+
+
+let pedido =
+document.getElementById("pedido").value;
+
+
+
+let mensagem =
+
+"PEDIDO DE ORAÇÃO\n\n"+
+"NOME: "+nome+
+"\n\nPEDIDO:\n"+
+pedido;
+
+
+
+let numero =
+"5511999999999";
+
+
+
+window.open(
+
+"https://wa.me/"+numero+
+"?text="+
+encodeURIComponent(mensagem),
+
+"_blank"
+
+);
+
+
+}
+
+
+
+
+
+
+// ==========================
+// MÚSICA
+// ==========================
+
+
+let audio =
+new Audio("Louvor.mp3");
+
+
+let tocando=false;
+
+
+
+function tocarMusica(){
+
+
+if(tocando){
+
+
+audio.pause();
+
+tocando=false;
+
+
+}
+
+else{
+
+
+audio.play();
+
+tocando=true;
+
+
+}
+
+
+}
+
+
+
+</script>
+
+
+</body>
+
+</html>
