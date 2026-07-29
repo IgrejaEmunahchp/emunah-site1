@@ -8,9 +8,11 @@
 
 <title>Igreja EMUNAH</title>
 
-<link rel="stylesheet" href="style.css">
-
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+</style>
 
 </head>
 
@@ -18,188 +20,198 @@
 <body>
 
 
-<!-- TELA DE ABERTURA -->
+<!-- NOTIFICAÇÃO DE ENTRADA -->
 
-<section class="intro">
+<div class="modal" id="entrada">
 
-<video autoplay muted loop playsinline>
-<source src="VID-20260729-WA0071(1).mp4" type="mp4">
-</video>
-
-
-<div class="intro-overlay"></div>
-
-
-<div class="intro-content">
-
-<img src="IMG-20260319-WA0002.jpg" class="logo">
+<div class="modal-box">
 
 
 <h1>
-VOCÊ É O NOSSO<br>
-<span>CONVIDADO!!</span>
+VOCÊ É O NOSSO CONVIDADO!!
 </h1>
 
 
-<p>
-Venha viver uma experiência com Deus
-</p>
+<video 
+id="videoEntrada"
+controls
+playsinline>
+
+<source src="video.mp4" type="video/mp4">
+
+</video>
 
 
-<a href="#cultos" class="btn">
-Ver cronograma dos cultos
-</a>
+<button 
+id="botaoCultos"
+onclick="abrirSite()">
+
+VER CRONOGRAMA DOS CULTOS
+
+</button>
 
 
 </div>
 
+</div>
 
-</section>
+
+
+<!-- CABEÇALHO -->
+
+<header>
+
+<div class="logo">
+
+IGREJA EMUNAH
+
+</div>
+
+
+<nav>
+
+<a href="#cultos">Cultos</a>
+
+<a href="#oracao">Oração</a>
+
+<a href="#local">Localização</a>
+
+</nav>
+
+
+</header>
+
 
 
 
 <!-- HERO -->
 
-
 <section class="hero">
 
 
-<div class="hero-content">
+<div class="hero-text">
 
 
 <h2>
-Igreja EMUNAH
+Um lugar para encontrar Deus
 </h2>
 
 
 <p>
-Um lugar de fé, comunhão e transformação.
+Venha fazer parte da nossa família de fé.
 </p>
+
+
+<a href="#cultos">
+
+Conheça nossos cultos
+
+</a>
 
 
 </div>
 
 
 </section>
-  
-<!-- CRONOGRAMA DOS CULTOS -->
-
-<section id="cultos" class="cultos">
 
 
-<div class="titulo">
 
-<h2>
-Cronograma dos Cultos
+
+<!-- CRONOGRAMA -->
+
+<section id="cultos">
+
+
+<h2 class="titulo">
+
+CRONOGRAMA DOS CULTOS
+
 </h2>
 
+
+
+<div class="cultos-container">
+
+
+
+<div class="card">
+
+<h3>TERÇA-FEIRA</h3>
+
 <p>
-Confira nossos horários e venha participar conosco.
+Culto de oração<br>
+Horário: 19:30
 </p>
 
 </div>
 
 
 
-<div class="cards">
 
+<div class="card">
 
-
-<div class="card reveal">
-
-
-<div class="card-img">
-
-<img src="imagens/culto1.jpg" alt="Culto EMUNAH">
-
-</div>
-
-
-<div class="card-content">
-
-<h3>
-Culto de Celebração
-</h3>
-
+<h3>QUARTA-FEIRA</h3>
 
 <p>
-Domingo • 19:00h
+Culto da Palavra<br>
+Horário: 19:30
 </p>
 
-
-<span>
-Louvor, palavra e comunhão.
-</span>
-
-
-</div>
-
-
 </div>
 
 
 
 
+<div class="card">
 
-<div class="card reveal">
-
-
-<div class="card-img">
-
-<img src="imagens/culto2.jpg" alt="Culto de oração">
-
-</div>
-
-
-<div class="card-content">
-
-<h3>
-Culto de Oração
-</h3>
-
+<h3>QUINTA-FEIRA</h3>
 
 <p>
-Quarta-feira • 19:30h
+Culto de Ensino<br>
+Horário: 19:30
 </p>
 
-
-<span>
-Um momento de busca e intimidade com Deus.
-</span>
-
-
-</div>
-
-
 </div>
 
 
 
 
+<div class="card">
 
-<div class="card reveal">
-
-
-<div class="card-content">
-
-
-<h3>
-Encontro de Jovens
-</h3>
-
+<h3>SEXTA-FEIRA</h3>
 
 <p>
-Sábado • 19:00h
+Culto de Celebração<br>
+Horário: 19:30
 </p>
-
-
-<span>
-Conexão, aprendizado e crescimento espiritual.
-</span>
-
 
 </div>
 
+
+
+
+<div class="card">
+
+<h3>SÁBADO</h3>
+
+<p>
+Culto Especial<br>
+Horário: 19:30
+</p>
+
+</div>
+
+
+
+
+<div class="card">
+
+<h3>DOMINGO</h3>
+
+<p>
+Culto da Família<br>
+Horário: 18:00
+</p>
 
 </div>
 
@@ -209,121 +221,3 @@ Conexão, aprendizado e crescimento espiritual.
 
 
 </section>
-  <!-- LOCALIZAÇÃO -->
-
-<section class="localizacao">
-
-
-<div class="titulo">
-
-<h2>
-Nossa Localização
-</h2>
-
-<p>
-Venha nos visitar, será uma alegria receber você.
-</p>
-
-</div>
-
-
-
-<div class="mapa">
-
-<iframe
-src="https://maps.app.goo.gl/oaRTBnacjQGExgCH8"
-loading="lazy">
-</iframe>
-
-</div>
-
-
-
-<div class="endereco">
-
-<h3>
-Igreja EMUNAH
-</h3>
-
-<p>
-📍 Rua Albatroz, 301 - Esplanada 1 CHAPADÃO DO SUL/MS
-  
-</p>
-
-
-<a 
-href="https://maps.app.goo.gl/oaRTBnacjQGExgCH8"
-target="_blank"
-class="btn">
-
-Como chegar
-
-</a>
-
-
-</div>
-
-
-
-</section>
-
-
-
-
-
-<!-- RODAPÉ -->
-
-
-<footer>
-
-
-<div class="footer-logo">
-
-<img src="IMG-20260319-WA0002.jpg">
-
-
-<h3>
-Igreja EMUNAH
-</h3>
-
-</div>
-
-
-
-<p>
-© 2026 Igreja EMUNAH - Todos os direitos reservados.
-</p>
-
-
-
-<div class="social">
-
-
-<a href="#">
-Instagram
-</a>
-
-
-<a href="#">
-Facebook
-</a>
-
-
-<a href="#">
-WhatsApp
-</a>
-
-
-</div>
-
-
-</footer>
-
-
-
-<script src="script.js"></script>
-
-
-</body>
-
-  </html>
